@@ -1,8 +1,8 @@
 {
-  "name": "@monorepo-template/functions",
+  "name": "@anomali007/functions",
   "version": "0.0.0",
   "dependencies": {
-    "@monorepo-template/core": "*",
+    "@anomali007/core": "workspace:*",
     "sst": "*"
   },
   "devDependencies": {

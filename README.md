@@ -16,7 +16,7 @@ A template to create a monorepo SST ❍ Ion project.
 3. Rename the files in the project to the name of your app. 
 
    ```bash
-   npx replace-in-file /monorepo-template/g MY_APP **/*.* --verbose
+   npx replace-in-file /anomali007/g MY_APP **/*.* --verbose
    ```
 
 4. Deploy!
@@ -47,7 +47,7 @@ This template uses [npm Workspaces](https://docs.npmjs.com/cli/v8/using-npm/work
    That you can use across other packages using.
 
    ```ts
-   import { Example } from "@aws-monorepo/core/example";
+   import { Example } from "@anomali007/core/example";
 
    Example.hello();
    ```
