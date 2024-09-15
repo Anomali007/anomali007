@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { User } from "./payload-types";
+import { s3Storage } from "@payloadcms/storage-s3";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -250,8 +251,26 @@ export default buildConfig({
     limits: {
       fileSize: 5000000, // 5MB, adjust as needed
     },
+    useTempFiles: true,
   },
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
+  plugins: [
+    s3Storage({
+      collections: {
+        media: {
+          prefix: "uploads", // Optional: adds a prefix to your file paths
+        },
+      },
+      bucket: process.env.PORTFOLIO_BUCKET_NAME || "",
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY || "",
+          secretAccessKey: process.env.S3_SECRET_KEY || "",
+        },
+        region: "us-east-1",
+      },
+    }),
+  ],
 });
