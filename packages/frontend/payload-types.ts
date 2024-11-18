@@ -89,6 +89,7 @@ export interface User {
  */
 export interface Media {
   id: number;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;

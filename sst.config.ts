@@ -9,10 +9,25 @@ export default $config({
     };
   },
   async run() {
-    // Create a VPC for the database
-    const vpc = new sst.aws.Vpc("MyVpc");
+    // Create a VPC for the database and Next.js site
+    const vpc = new sst.aws.Vpc("MyVpc", {
+      az: 2, // Number of Availability Zones
+      nat: "managed", // Enable NAT if required for outbound internet access from private subnets
+      transform: {
+        securityGroup: {
+          ingress: [
+            {
+              cidrBlocks: ["0.0.0.0/0"],
+              fromPort: 5432,
+              toPort: 5432,
+              protocol: "tcp",
+            },
+          ],
+        },
+      },
+    });
 
-    // Create the Postgres database
+    // 2. Create the Postgres database within the VPC
     const database = new sst.aws.Postgres("PayloadDatabase", {
       databaseName: "payload",
       scaling: {
@@ -20,14 +35,14 @@ export default $config({
         max: "16 ACU",
       },
       vpc,
+      version: "15.5", // Specify Postgres version
     });
 
-    // Create an S3 bucket for file uploads
+    // 3. Create S3 buckets
     const bucket = new sst.aws.Bucket("UploadsBucket", {
       cors: true,
     });
 
-    // Create an S3 bucket for user portfolio static content
     const portfolioBucket = new sst.aws.Bucket("UserPortfolioBucket", {
       public: true,
       cors: [
@@ -38,8 +53,8 @@ export default $config({
       ],
     });
 
-    // Generate a random secret for Payload CMS
-    const payloadSecret = new sst.Secret("PayloadSecret");
+    // 4. Generate a random secret for Payload CMS
+    const payloadSecret = new sst.Secret("PayloadSecret", "payload-secret");
 
     // Set up secrets for Google OAuth
     const secrets = {
@@ -47,7 +62,12 @@ export default $config({
       GoogleClientSecret: new sst.Secret("GoogleClientSecret"),
     };
 
-    // Set up SST Auth for magic link and Google authentication
+    const s3Credentials = {
+      S3_ACCESS_KEY: new sst.Secret("S3AccessKey", ""),
+      S3_SECRET_KEY: new sst.Secret("S3SecretKey", ""),
+    };
+
+    // 5. Setup SST Auth for magic link and Google authentication
     const auth = new sst.aws.Auth("Auth", {
       authenticator: {
         handler: "packages/functions/src/auth.handler",
@@ -55,28 +75,47 @@ export default $config({
       },
     });
 
-    // Create the Next.js site
+    // 6. Construct the connection string using the database resource
+    const connectionString = $interpolate`postgresql://${database.username}:${database.password}@${database.host}:${database.port}/${database.database}`;
+    console.log("Connection String:", connectionString);
+
+    // 7. Create the Next.js site
     const site = new sst.aws.Nextjs("Anomali007-Frontend", {
       path: "packages/frontend",
       environment: {
-        DATABASE_URL: database.host,
+        // DATABASE_URL: database.host,
         PAYLOAD_SECRET: payloadSecret.value,
         S3_BUCKET_NAME: bucket.name,
         PORTFOLIO_BUCKET_NAME: portfolioBucket.name,
-        NEXT_PUBLIC_SERVER_URL: "anomali007.com", // Update this with your actual domain
-        AUTH_REDIRECT_URL: "anomali007.com", // Update this with your actual domain
+        NEXT_PUBLIC_SERVER_URL:
+          $app.stage === "production"
+            ? "https://anomali007.com"
+            : "http://localhost:3000",
+        AUTH_REDIRECT_URL:
+          $app.stage === "production"
+            ? "https://anomali007.com"
+            : "http://localhost:3000",
         AUTH_URL: auth.url,
-        AUTH_PUBLIC_KEY: auth.key.publicKeyPem, // Public key for token verification
+        AUTH_PUBLIC_KEY: auth.key.publicKeyPem,
         GOOGLE_CLIENT_ID: secrets.GoogleClientID.value,
+        DATABASE_URL: connectionString.apply((str) => str),
+        S3_ACCESS_KEY: s3Credentials.S3_ACCESS_KEY.value,
+        S3_SECRET_KEY: s3Credentials.S3_SECRET_KEY.value,
       },
-      link: [database, bucket, portfolioBucket, payloadSecret, auth],
+      link: [database, bucket, portfolioBucket, payloadSecret, auth, vpc],
       domain: {
-        name: "anomali007.com",
-        redirects: ["www.anomali007.com"],
+        name: $app.stage === "production" ? "anomali007.com" : "localhost:3000",
+        redirects: [
+          $app.stage === "production" ? "www.anomali007.com" : "localhost:3000",
+        ],
         dns: sst.aws.dns(),
       },
-      vpc,
+      vpc: vpc,
     });
+
+    // // 8. Allow Next.js app to connect to RDS
+
+    // const siteSecurityGroup = site.nodes.server.nodes.role.id;
 
     // Create an API for the user dashboard
     const dashboard = new sst.aws.ApiGatewayV2("DashboardApi", {
@@ -164,6 +203,19 @@ export default $config({
     //   ],
     // };
 
+    // 11. Create a Temporary Lambda Function for Testing
+    const testFunction = new sst.aws.Function("TestFunction", {
+      handler: "packages/functions/src/test.handler",
+      vpc: vpc, // Ensure it's in the same VPC
+      environment: {
+        DATABASE_URL: connectionString.apply((str) => str),
+      },
+    });
+
+    // Allow the database to be accessed from the test function
+    const dbSecurityGroup = database.nodes.cluster.vpcSecurityGroupIds[0];
+    dbSecurityGroup;
+
     return {
       api: site.url,
       databaseUrl: database.host,
@@ -172,6 +224,13 @@ export default $config({
       authUrl: auth.url,
       dashboardApiUrl: dashboard.url,
       siteUrl: site.url,
+      PayloadDatabase: {
+        database: database.database,
+        secretArn: database.secretArn,
+        clusterArn: database.clusterArn,
+        region: $app.providers.aws.region, // Add this if not already present
+        connectionString: connectionString.apply((str) => str),
+      },
     };
   },
 });

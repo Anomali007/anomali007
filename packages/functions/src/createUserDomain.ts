@@ -1,8 +1,14 @@
+// packages/functions/src/createUserDomain.ts
 import { Route53 } from "aws-sdk";
 
-export const handler = async (event: any) => {
+import { Resource } from "sst";
+import { Handler } from "aws-lambda";
+
+export const handler: Handler = async (event: any) => {
   const route53 = new Route53();
   const { userDomain } = JSON.parse(event.body);
+
+  const portfolioBucketName = Resource.UserPortfolioBucket.name;
 
   const params = {
     ChangeBatch: {
@@ -13,9 +19,7 @@ export const handler = async (event: any) => {
             Name: userDomain,
             Type: "A",
             AliasTarget: {
-              DNSName:
-                process.env.PORTFOLIO_BUCKET_NAME +
-                ".s3-website-us-east-1.amazonaws.com",
+              DNSName: `${portfolioBucketName}.s3-website-us-east-1.amazonaws.com`,
               EvaluateTargetHealth: false,
               HostedZoneId: "Z3AQBSTGFYJSTF", // S3 website endpoint hosted zone ID
             },
