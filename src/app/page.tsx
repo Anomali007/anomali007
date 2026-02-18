@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { AvatarPair } from "@/components/avatar-pair";
 import { Section } from "@/components/section";
 import { ProjectCard } from "@/components/project-card";
 import { BlogCard } from "@/components/blog-card";
@@ -27,14 +28,9 @@ export default function Home() {
         </div>
 
         <div className="animate-fade-in-up py-8 sm:py-16">
-          <Image
-            src="/images/avatar.jpg"
-            alt="Mali Franzese"
-            width={96}
-            height={96}
-            className="mb-8 rounded-full border-2 border-border"
-            priority
-          />
+          <div className="mb-8">
+            <AvatarPair size={120} />
+          </div>
           <h1 className="mb-6 font-display text-4xl font-bold tracking-tight text-text sm:text-5xl lg:text-6xl">
             I build things.
           </h1>
@@ -45,11 +41,7 @@ export default function Home() {
               960+ commits across 22 repos in 7 months.
             </span>
           </p>
-          <p className="mb-8 text-sm text-text-secondary">
-            Hack Reactor Alum &middot; WGU Cybersecurity (in progress) &middot;
-            7+ years shipping production software
-          </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/projects"
               className="rounded-lg bg-accent px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-accent-hover"

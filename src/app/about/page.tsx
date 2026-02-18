@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Section } from "@/components/section";
+import { AvatarPair } from "@/components/avatar-pair";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,13 +13,7 @@ export default function AboutPage() {
     <Section>
       <div className="animate-fade-in-up max-w-3xl">
         <div className="mb-8 flex items-center gap-6">
-          <Image
-            src="/images/avatar.jpg"
-            alt="Mali Franzese"
-            width={80}
-            height={80}
-            className="rounded-full border-2 border-border"
-          />
+          <AvatarPair size={100} />
           <h1 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
             About
           </h1>
