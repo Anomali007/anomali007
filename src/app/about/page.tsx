@@ -30,9 +30,16 @@ export default function AboutPage() {
           <p className="text-lg leading-relaxed text-text-secondary">
             I&apos;m Mali Franzese — principal engineer, fractional CTO, and
             founder of{" "}
-            <span className="text-text">The MASS Lab</span> in Austin, TX. I
-            build and ship production SaaS platforms, developer tools, and
-            AI-powered systems — usually solo, always at pace.
+            <a
+              href="https://themasslab.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent transition-colors hover:text-accent-hover"
+            >
+              The MASS Lab
+            </a>{" "}
+            in Austin, TX. I build and ship production SaaS platforms, developer
+            tools, and AI-powered systems — usually solo, always at pace.
           </p>
         </div>
 
@@ -47,6 +54,11 @@ export default function AboutPage() {
               software through Hack Reactor in LA. After that I built my own
               practice — The MASS Lab — taking on client projects and building
               internal products.
+            </p>
+            <p>
+              The MASS Lab is my engineering practice — where I take on
+              fractional CTO engagements and build internal products like MASS
+              Lead Connect.
             </p>
             <p>
               Along the way I worked at Inter-Con building Python APIs on AWS,
@@ -66,6 +78,41 @@ export default function AboutPage() {
               Currently pursuing a B.S. in Cybersecurity at WGU while
               continuing to ship.
             </p>
+          </div>
+        </div>
+
+        {/* Shipping Velocity */}
+        <div className="mb-12">
+          <h2 className="mb-4 font-display text-xl font-semibold text-text">
+            Shipping Velocity
+          </h2>
+          <div className="mb-6">
+            <a
+              href="https://github.com/Anomali007"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://ghchart.rshah.org/2dd4bf/Anomali007"
+                alt="Mali Franzese's GitHub contribution graph"
+                className="w-full max-w-3xl opacity-60 transition-opacity hover:opacity-100"
+              />
+            </a>
+            <p className="mt-2 text-xs text-text-secondary">
+              GitHub activity over the last year
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-secondary">
+            <span>
+              <span className="font-medium text-text">960+</span> commits
+              across 22 repos in 7 months
+            </span>
+            <span>
+              <span className="font-medium text-text">6+</span> months
+              daily-driving Claude Code
+            </span>
           </div>
         </div>
 

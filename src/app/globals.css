@@ -45,6 +45,9 @@ body {
   font-family: var(--font-body), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 ::selection {
@@ -84,6 +87,77 @@ body {
 .animate-delay-200 { animation-delay: 0.2s; }
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
+
+/* Star field — hero only */
+@keyframes star-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50px); }
+}
+
+.starfield {
+  position: relative;
+  overflow: hidden;
+}
+
+.starfield::before,
+.starfield::after {
+  content: "";
+  position: absolute;
+  inset: -50px;
+  pointer-events: none;
+  border-radius: 1px;
+  animation: star-drift 90s linear infinite alternate;
+}
+
+.starfield::before {
+  box-shadow:
+    120px 40px 0 0.5px rgba(228, 228, 231, 0.3),
+    340px 80px 0 0.5px rgba(228, 228, 231, 0.25),
+    560px 120px 0 0.5px rgba(228, 228, 231, 0.2),
+    780px 60px 0 0.5px rgba(228, 228, 231, 0.35),
+    200px 200px 0 0.5px rgba(228, 228, 231, 0.2),
+    450px 280px 0 0.5px rgba(228, 228, 231, 0.3),
+    670px 240px 0 0.5px rgba(228, 228, 231, 0.15),
+    890px 180px 0 0.5px rgba(228, 228, 231, 0.25),
+    100px 350px 0 0.5px rgba(228, 228, 231, 0.2),
+    320px 400px 0 0.5px rgba(228, 228, 231, 0.3),
+    540px 380px 0 0.5px rgba(228, 228, 231, 0.25),
+    760px 420px 0 0.5px rgba(228, 228, 231, 0.15),
+    50px 500px 0 0.5px rgba(228, 228, 231, 0.2),
+    280px 520px 0 0.5px rgba(228, 228, 231, 0.3),
+    500px 480px 0 0.5px rgba(228, 228, 231, 0.2),
+    720px 540px 0 0.5px rgba(228, 228, 231, 0.25),
+    940px 300px 0 0.5px rgba(228, 228, 231, 0.2),
+    160px 140px 0 0.5px rgba(228, 228, 231, 0.15),
+    380px 160px 0 0.5px rgba(228, 228, 231, 0.25),
+    600px 320px 0 0.5px rgba(228, 228, 231, 0.2);
+}
+
+.starfield::after {
+  box-shadow:
+    80px 100px 0 1px rgba(228, 228, 231, 0.12),
+    300px 250px 0 1px rgba(228, 228, 231, 0.1),
+    520px 50px 0 1px rgba(228, 228, 231, 0.08),
+    740px 320px 0 1px rgba(228, 228, 231, 0.12),
+    180px 420px 0 1px rgba(228, 228, 231, 0.1),
+    400px 150px 0 1px rgba(228, 228, 231, 0.08),
+    620px 480px 0 1px rgba(228, 228, 231, 0.12),
+    840px 100px 0 1px rgba(228, 228, 231, 0.1),
+    260px 300px 0 1px rgba(228, 228, 231, 0.08),
+    480px 540px 0 1px rgba(228, 228, 231, 0.1);
+  animation-duration: 120s;
+  animation-direction: alternate-reverse;
+}
+
+/* Pulsing green dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
 
 /* MDX Prose Styles */
 .prose {

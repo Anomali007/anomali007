@@ -57,7 +57,7 @@ function CardContent({ project }: { project: Project }) {
 }
 
 const cardClass =
-  "group flex flex-col rounded-xl border border-border bg-surface p-6 transition-all hover:border-border-light hover:bg-surface-2";
+  "group flex flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:border-border-light hover:bg-surface-2 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(45,212,191,0.08)]";
 
 export function ProjectCard({ project }: { project: Project }) {
   const href = project.url || project.repoUrl;
