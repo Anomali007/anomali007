@@ -24,6 +24,23 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  keywords: [
+    "Mali Franzese",
+    "Anomali007",
+    "software engineer",
+    "principal engineer",
+    "fractional CTO",
+    "AI-native development",
+    "Next.js",
+    "TypeScript",
+    "React",
+    "AWS",
+    "full-stack developer",
+    "Austin TX",
+  ],
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
@@ -31,17 +48,35 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 460,
+        height: 460,
+        alt: `${siteConfig.name} — Builder, Engineer, Anomali`,
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
+    creator: `@${siteConfig.handle}`,
+  },
+  alternates: {
+    canonical: siteConfig.url,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -50,8 +85,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    image: `${siteConfig.url}${siteConfig.ogImage}`,
+    jobTitle: "Principal Software Engineer",
+    worksFor: { "@type": "Organization", name: "The MASS Lab" },
+    sameAs: [siteConfig.github, siteConfig.linkedin],
+  };
+
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
       >

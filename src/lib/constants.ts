@@ -8,7 +8,7 @@ export const siteConfig = {
   github: "https://github.com/Anomali007",
   linkedin: "https://www.linkedin.com/in/mali-franzese",
   email: "mali@themasslab.com",
-  ogImage: "/og-image.png",
+  ogImage: "/images/avatar.jpg",
 };
 
 export const navLinks = [
