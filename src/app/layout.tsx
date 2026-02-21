@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Mali Franzese",
     "Anomali007",
     "software engineer",
-    "principal engineer",
+    "independent principal engineer",
     "fractional CTO",
     "AI-native development",
     "Next.js",
@@ -91,7 +91,7 @@ export default function RootLayout({
     name: siteConfig.name,
     url: siteConfig.url,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    jobTitle: "Principal Software Engineer",
+    jobTitle: "Independent Principal Software Engineer",
     worksFor: { "@type": "Organization", name: "The MASS Lab" },
     sameAs: [siteConfig.github, siteConfig.linkedin],
   };

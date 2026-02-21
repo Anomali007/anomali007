@@ -5,7 +5,7 @@ import { AvatarPair } from "@/components/avatar-pair";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mali Franzese — principal engineer, fractional CTO, and founder of The MASS Lab. The story, the workflow, and what comes next.",
+    "Mali Franzese — independent principal engineer, fractional CTO, and founder of The MASS Lab. The story, the workflow, and what comes next.",
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
         {/* Intro */}
         <div className="mb-12">
           <p className="text-lg leading-relaxed text-text-secondary">
-            I&apos;m Mali Franzese — principal engineer, fractional CTO, and
+            I&apos;m Mali Franzese — independent principal engineer, fractional CTO, and
             founder of{" "}
             <a
               href="https://themasslab.com"

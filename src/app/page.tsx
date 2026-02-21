@@ -35,8 +35,9 @@ export default function Home() {
             I build things.
           </h1>
           <p className="mb-4 max-w-2xl text-lg leading-relaxed text-text-secondary sm:text-xl">
-            Principal engineer shipping production SaaS platforms solo at AI
-            speed.{" "}
+            Independent principal engineer shipping production SaaS platforms
+            end-to-end — architecture, infra, CI/CD, and deployment across
+            multiple startups.{" "}
             <span className="text-text">
               960+ commits across 22 repos in 7 months.
             </span>
@@ -189,7 +190,7 @@ export default function Home() {
               About Me
             </h2>
             <p className="mb-6 max-w-2xl text-text-secondary leading-relaxed">
-              I&apos;m Mali Franzese — principal engineer, fractional CTO, and
+              I&apos;m Mali Franzese — independent principal engineer, fractional CTO, and
               founder of{" "}
               <a
                 href="https://themasslab.com"
