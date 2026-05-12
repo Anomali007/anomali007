@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
+import { ArmoryHero } from "@/components/heroes/armory-hero";
 
 export const metadata: Metadata = {
   title: "Uses",
@@ -97,15 +98,10 @@ const uses: UsesSection[] = [
 
 export default function UsesPage() {
   return (
-    <Section>
+    <>
+      <ArmoryHero />
+      <Section>
       <div className="animate-fade-in-up max-w-3xl">
-        <h1 className="mb-2 font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
-          Uses
-        </h1>
-        <p className="mb-12 text-text-secondary">
-          The tools, stack, and AI-native development setup behind the work.
-        </p>
-
         <div className="space-y-12">
           {uses.map((section) => (
             <div key={section.title}>
@@ -134,5 +130,6 @@ export default function UsesPage() {
         </div>
       </div>
     </Section>
+    </>
   );
 }

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Mali Franzese",
     "Anomali007",
     "software engineer",
-    "independent principal engineer",
+    "principal engineer",
     "fractional CTO",
     "AI-native development",
     "Next.js",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "React",
     "AWS",
     "full-stack developer",
-    "Austin TX",
+    "Central Texas",
   ],
   openGraph: {
     title: siteConfig.title,

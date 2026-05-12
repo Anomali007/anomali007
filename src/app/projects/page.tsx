@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
+import { GalleryHero } from "@/components/heroes/gallery-hero";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "SaaS platforms, developer tools, and open source projects built by Mali Franzese — independent principal engineer shipping production software end-to-end.",
+    "SaaS platforms, developer tools, and open source projects built by Mali Franzese — Founder-Engineer at The MASS Lab, shipping production software end-to-end.",
 };
 
 const categories = [
@@ -30,16 +31,10 @@ export default async function ProjectsPage({
       : projects.filter((p) => p.category === active);
 
   return (
-    <Section>
+    <>
+      <GalleryHero />
+      <Section>
       <div className="animate-fade-in-up">
-        <h1 className="mb-2 font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
-          Projects
-        </h1>
-        <p className="mb-8 text-text-secondary">
-          Full-stack platforms, tools, and experiments. Most built solo with
-          AI-native workflows.
-        </p>
-
         {/* Category filters */}
         <div className="mb-8 flex flex-wrap gap-2">
           {categories.map(({ key, label }) => (
@@ -64,5 +59,6 @@ export default async function ProjectsPage({
         </div>
       </div>
     </Section>
+    </>
   );
 }

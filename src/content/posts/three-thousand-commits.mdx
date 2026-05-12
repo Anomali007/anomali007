@@ -1,0 +1,26 @@
+---
+title: "3,000 commits, 20 repos, one engineer"
+date: "2026-05-01"
+excerpt: "What I learned shipping multi-tenant SaaS, native desktop apps, voice AI, and infra — all solo, with Claude Code as the co-engineer."
+tags: ["ai-native", "retrospective", "velocity"]
+---
+
+The number itself isn't the story. The story is what makes it possible without cutting senior-level review on every line.
+
+Three patterns that hold across all 20+ repos:
+
+**1. AI gets deep autonomy on bounded surfaces.** A task with a clear "done when" — a tested module, a typed API, a documented schema — is an AI task. A task with ambiguous scope is a human task. The boundary moves over time as the agent gets better, but it always exists.
+
+**2. Review discipline is non-negotiable.** Every PR runs through `/security-review` and `/performance-review` before merge. Tests must pass. Types must hold. The agent writes the code, but the human owns the merge. I have not relaxed this rule once in seven months.
+
+**3. Infra is repeatable, products are not.** SST v3 templates, IAM Identity Center patterns, shared CI workflows — those get extracted. Product code stays per-repo. The reuse layer is *deployment*, not features.
+
+What this isn't:
+
+- A vibe-coding play
+- A way to fire engineers
+- A path to skipping fundamentals
+
+What it is: a way for someone with senior-level fundamentals to run a one-person engineering practice the way a small team used to.
+
+Below the surface there are about five categories of work doing the heavy lifting. I'll write each up: the BTO real-time fantasy-sports platform, the MASS Lead Connect voice receptionist, Token Holder, KnowMessenger, and the trading engines. Each one shipped because the loop above held.

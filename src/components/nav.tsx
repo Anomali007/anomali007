@@ -14,13 +14,18 @@ export function Nav() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-display text-lg font-bold tracking-tight text-text transition-colors hover:text-accent"
+          className="group flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-text transition-colors hover:text-accent"
         >
-          anomali
+          <span className="alien-dots" aria-hidden>
+            <span />
+            <span />
+            <span />
+          </span>
+          <span>anomali</span>
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Desktop nav — brass-mono treatment with active indicator */}
+        <ul className="hidden items-center gap-7 md:flex">
           {navLinks.map(({ label, href }) => {
             const isActive =
               href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -28,13 +33,24 @@ export function Nav() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`text-sm transition-colors ${
+                  className={`relative font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${
                     isActive
-                      ? "text-accent"
+                      ? "text-text"
                       : "text-text-secondary hover:text-text"
                   }`}
                 >
                   {label}
+                  {isActive && (
+                    <span
+                      aria-hidden
+                      className="absolute -bottom-1.5 left-0 right-0 h-px"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, transparent, var(--brass), transparent)",
+                        boxShadow: "0 0 8px rgba(229,168,51,0.5)",
+                      }}
+                    />
+                  )}
                 </Link>
               </li>
             );
@@ -77,9 +93,9 @@ export function Nav() {
                   <Link
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className={`text-sm transition-colors ${
+                    className={`font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${
                       isActive
-                        ? "text-accent"
+                        ? "text-text"
                         : "text-text-secondary hover:text-text"
                     }`}
                   >

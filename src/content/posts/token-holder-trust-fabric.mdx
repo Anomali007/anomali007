@@ -1,0 +1,23 @@
+---
+title: "Token Holder: a trust fabric for AI agents"
+date: "2026-05-04"
+excerpt: "Why I'm building an identity, permissioning, and audit layer specifically for agents — and why it has two deployment targets."
+tags: ["token-holder", "agent-identity", "architecture"]
+---
+
+The Token Holder thesis is short: **AI agents need their own identity layer**, and shoving them into existing user-auth systems gets the model wrong in a way that breaks down at scale.
+
+Three asymmetries that humans-vs-agents don't share:
+
+1. **Scope of action.** An agent can do 10,000 things a human won't do in a week. Coarse "can this principal call this API" doesn't model that.
+2. **Audit weight.** Every agent action needs to be replayable. Humans get the benefit of memory; agents must hand you receipts.
+3. **Revocation latency.** Pulling a human's access mid-flight is rare; pulling an agent's is a tuesday afternoon. The layer must support it without dropping the workflow.
+
+Token Holder ships in two shapes, same Rust core:
+
+- **Desktop (Tauri)** — sovereign mode. Your machine holds the identities, your keys never leave. Good for ops people who need an agent grant but won't tolerate a cloud.
+- **Cloud (`cloud.tokenholder.io`)** — hosted, multi-tenant, per-tenant subdomains. Aurora Serverless v2, ECS Fargate, ACM/CloudFront. Good for teams who want the trust layer as infrastructure, not homework.
+
+The reconciliation cron is the part I'm most proud of: a daily Lambda walks the wallet identities + the Telnyx verify profiles + any other external systems they map to, and surfaces every drift with a runbook entry. Trust without audit is theater.
+
+More architecture writeups coming. The version of this that's worth your time is the one where I show the schema.
