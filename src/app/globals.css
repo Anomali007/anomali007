@@ -223,7 +223,10 @@ a:hover .vitrine-icon,
   box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
 }
 
-/* Command-bridge atmosphere — shared by inner-page hero sections */
+/* Command-bridge atmosphere — shared by inner-page hero sections.
+   The `> *` lift rule lives in @layer components so Tailwind's utility
+   layer (e.g., `.absolute`, `.z-0`) wins for elements that need to
+   float in their own positioning context (like the alien watermark). */
 .bridge-atmosphere {
   position: relative;
   background: var(--bg-deep);
@@ -250,9 +253,11 @@ a:hover .vitrine-icon,
   background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.85) 100%);
   opacity: 0.7;
 }
-.bridge-atmosphere > * {
-  position: relative;
-  z-index: 2;
+@layer components {
+  .bridge-atmosphere > * {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
