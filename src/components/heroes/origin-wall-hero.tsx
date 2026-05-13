@@ -12,11 +12,11 @@ type Waypoint = {
 };
 
 const waypoints: Waypoint[] = [
-  { year: "2015", city: "Tempe, AZ", label: "ASU — 1 yr, Electrical Engineering" },
-  { year: "2018", city: "Los Angeles", label: "Hack Reactor — software pivot" },
-  { year: "2019", city: "—", label: "The MASS Lab — first clients" },
-  { year: "2021", city: "Remote", label: "Inter-Con — Python APIs on AWS" },
-  { year: "2022", city: "Remote", label: "Beat The Odds — lead engineer" },
+  { year: "2015", city: "Tempe, AZ", label: "ASU - 1 yr, Electrical Engineering" },
+  { year: "2018", city: "Los Angeles", label: "Hack Reactor - software pivot" },
+  { year: "2019", city: "-", label: "The MASS Lab - first clients" },
+  { year: "2021", city: "Remote", label: "Inter-Con - Python APIs on AWS" },
+  { year: "2022", city: "Remote", label: "Beat The Odds - lead engineer" },
   { year: "2026", city: "Central Texas", label: "Founder-Engineer · The MASS Lab" },
 ];
 
@@ -35,7 +35,7 @@ export function OriginWallHero() {
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[auto_1fr_auto] lg:items-start">
-          {/* Left column — operator specimen card with photo */}
+          {/* Left column - operator specimen card with photo */}
           <div className="animate-fade-in-up">
             <div
               className="relative overflow-hidden border border-amber-500/30 bg-[#050505]/85 p-3 backdrop-blur-sm"
@@ -99,7 +99,7 @@ export function OriginWallHero() {
             </div>
           </div>
 
-          {/* Middle column — title + intro */}
+          {/* Middle column - title + intro */}
           <div className="animate-fade-in-up">
             <h1 className="mb-3 font-display text-3xl font-bold uppercase tracking-[0.05em] text-[#fff5eb] sm:text-5xl">
               The Story
@@ -107,7 +107,7 @@ export function OriginWallHero() {
             <div className="mb-5 h-px w-1/3 bg-gradient-to-r from-amber-500/60 via-amber-500/30 to-transparent" />
             <p className="max-w-xl text-sm text-amber-200/70 leading-relaxed sm:text-base">
               Founder-Engineer at The MASS Lab. The story below traces the
-              lineage — Phoenix to LA to Central Texas — and where the
+              lineage - Phoenix to LA to Central Texas - and where the
               workshop is now.
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-200/75">
@@ -125,7 +125,7 @@ export function OriginWallHero() {
             </div>
           </div>
 
-          {/* Right column — vertical timeline */}
+          {/* Right column - vertical timeline */}
           <ol className="relative pl-8">
             <span
               aria-hidden

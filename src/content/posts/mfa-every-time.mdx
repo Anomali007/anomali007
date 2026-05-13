@@ -1,20 +1,20 @@
 ---
 title: "MFA every time, even when it costs friction"
 date: "2026-05-12"
-excerpt: "Why I just spent an hour hardening my own AWS Identity Center — and the one setting that quietly undid the policy."
+excerpt: "Why I just spent an hour hardening my own AWS Identity Center - and the one setting that quietly undid the policy."
 tags: ["security", "aws", "field-notes"]
 ---
 
 A field note from this week.
 
-I was sure my AWS SSO was prompting for MFA every time I ran the CLI. It wasn't. Hadn't been for at least a month. The diagnosis took an embarrassingly long time because the *intent* was right — the underlying defaults silently won.
+I was sure my AWS SSO was prompting for MFA every time I ran the CLI. It wasn't. Hadn't been for at least a month. The diagnosis took an embarrassingly long time because the *intent* was right - the underlying defaults silently won.
 
 Three settings to know in IAM Identity Center if you care about this:
 
-1. **Permission set `SessionDuration`.** Lifetime of the role credentials minted on `aws sso login`. Default is often 12 hours for `AdministratorAccess`. Dropping this to 1–4 hours is good hygiene but **does not prompt MFA** on refresh — the SDK silently re-mints.
+1. **Permission set `SessionDuration`.** Lifetime of the role credentials minted on `aws sso login`. Default is often 12 hours for `AdministratorAccess`. Dropping this to 1-4 hours is good hygiene but **does not prompt MFA** on refresh - the SDK silently re-mints.
 2. **Authentication → "Maximum session duration" (background sessions).** This is the *refresh-token* lifetime, and it's the one that actually controls MFA frequency. Mine had drifted to **7 days**. Refresh tokens kept silently re-minting access for a full week.
 3. **MFA → "Prompt users for MFA."** "Only when their sign-in context changes" is the smooth default. "Every time they sign in" is the strict mode you probably want for a management account.
 
-The fix took five minutes once I found it. The hour was spent on the wrong layer — staring at permission-set session duration, wondering why MFA still didn't pop. Two timers, two purposes, only one of them actually triggers MFA.
+The fix took five minutes once I found it. The hour was spent on the wrong layer - staring at permission-set session duration, wondering why MFA still didn't pop. Two timers, two purposes, only one of them actually triggers MFA.
 
 If you're running an Organizations management account with `AdministratorAccess` across multiple accounts: audit the background-session length today. It's almost certainly longer than you think.

@@ -24,7 +24,7 @@ export function Nav() {
           <span>anomali</span>
         </Link>
 
-        {/* Desktop nav — brass-mono treatment with active indicator */}
+        {/* Desktop nav - brass-mono treatment with active indicator */}
         <ul className="hidden items-center gap-7 md:flex">
           {navLinks.map(({ label, href }) => {
             const isActive =

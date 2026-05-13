@@ -54,7 +54,7 @@ const PANELS: Panel[] = [
 function Workbench() {
   return (
     <group position={[0, -0.3, 0]}>
-      {/* Bench surface — narrower so panels read as the focal point */}
+      {/* Bench surface - narrower so panels read as the focal point */}
       <RoundedBox
         args={[4.2, 0.16, 1.8]}
         radius={0.04}
@@ -69,13 +69,13 @@ function Workbench() {
         />
       </RoundedBox>
 
-      {/* Brass inlay strip — a thin amber line running across the bench front */}
+      {/* Brass inlay strip - a thin amber line running across the bench front */}
       <mesh position={[0, 0.085, 0.88]}>
         <boxGeometry args={[3.8, 0.005, 0.01]} />
         <meshBasicMaterial color={AMBER} transparent opacity={0.55} />
       </mesh>
 
-      {/* Alien glyph — three small ovals etched into the bench, brighter amber */}
+      {/* Alien glyph - three small ovals etched into the bench, brighter amber */}
       <group position={[1.4, 0.09, 0.5]} rotation={[-Math.PI / 2, 0, 0]}>
         {[-0.09, 0, 0.09].map((x) => (
           <mesh key={x} position={[x, 0, 0]}>
@@ -85,7 +85,7 @@ function Workbench() {
         ))}
       </group>
 
-      {/* Brass-mark text positioned on the bench — implied via small bar */}
+      {/* Brass-mark text positioned on the bench - implied via small bar */}
       <mesh position={[-1.4, 0.09, 0.5]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[0.4, 0.04]} />
         <meshBasicMaterial color={AMBER} transparent opacity={0.4} />
@@ -196,7 +196,7 @@ function FloatingPanel({
             </p>
           </div>
 
-          {/* mini spark line — pure SVG, no data */}
+          {/* mini spark line - pure SVG, no data */}
           <svg viewBox="0 0 100 20" className="h-5 w-full">
             <polyline
               points="0,15 10,12 20,14 30,8 40,10 50,6 60,9 70,4 80,7 90,3 100,5"

@@ -35,7 +35,7 @@ export function WireHero() {
           </div>
         </div>
 
-        {/* Scrolling wire ribbon — panel-chrome style */}
+        {/* Scrolling wire ribbon - panel-chrome style */}
         <div
           className="wire-ribbon-track relative mb-10 overflow-hidden border border-amber-500/30 bg-[#050505]/85 backdrop-blur-md"
           style={{

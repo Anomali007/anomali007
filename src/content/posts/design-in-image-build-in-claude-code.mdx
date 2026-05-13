@@ -7,7 +7,7 @@ tags: ["ai-native", "ui", "method"]
 
 There's a workflow loop I've been using to get past the "everything looks like a Next.js starter" trap on product surfaces. It's two passes:
 
-1. **Generate a hero frame in image-gen.** Pick a fictional theme that's *adjacent* to what you're building — "global anomaly detection system" instead of "trading dashboard." The fictional theme is the constraint that keeps the design from drifting into generic SaaS gradients. Iterate three or four frames until one feels like the product.
+1. **Generate a hero frame in image-gen.** Pick a fictional theme that's *adjacent* to what you're building - "global anomaly detection system" instead of "trading dashboard." The fictional theme is the constraint that keeps the design from drifting into generic SaaS gradients. Iterate three or four frames until one feels like the product.
 2. **Hand the frame to Claude Code with a build instruction.** Something like *"Build this as a Vite + React + R3F app. Center scene = Three.js. Side panels = HTML overlays. Match type, spacing, glow, and color exactly. Wire to mock data first."* Then let the agent do the heavy translation.
 
 Two things this kills:
@@ -17,4 +17,4 @@ Two things this kills:
 
 The trade-off is honest: image-gen frames are *moodboards*, not pixel-perfect targets. The build phase will compromise. The point is that the compromise lands in a place the team would never have gotten to from a blank `<Section>`.
 
-I've used this for trading consoles, voice-ops dashboards, vault diagnostics. It scales as long as you keep the frames short and specific — one constraint at a time.
+I've used this for trading consoles, voice-ops dashboards, vault diagnostics. It scales as long as you keep the frames short and specific - one constraint at a time.

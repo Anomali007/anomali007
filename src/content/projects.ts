@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description:
       "Multi-tenant AI voice receptionist SaaS. Three Next.js apps, SST v3 on AWS, DynamoDB, Cognito, Telnyx voice, Stripe billing, WebRTC browser calling, and an autonomous agent runtime with human-in-the-loop approvals.",
     longDescription:
-      "MASS Lead Connect is the flagship product of The MASS Lab — a multi-tenant AI voice receptionist platform that handles inbound calls, qualifies leads, and routes appointments for service businesses.\n\nThe platform consists of three Next.js applications: a marketing site, a customer dashboard for business owners to manage their AI receptionist, and a staff portal for internal operations. The backend runs on SST v3 with DynamoDB, Cognito authentication, Telnyx voice integration, Stripe billing, and WebRTC for browser-based calling.\n\nThe most technically interesting piece is the autonomous agent runtime — an AI system that can take actions on behalf of the business (scheduling, follow-ups, qualification) with human-in-the-loop approval gates to prevent unwanted automation.",
+      "MASS Lead Connect is the flagship product of The MASS Lab - a multi-tenant AI voice receptionist platform that handles inbound calls, qualifies leads, and routes appointments for service businesses.\n\nThe platform consists of three Next.js applications: a marketing site, a customer dashboard for business owners to manage their AI receptionist, and a staff portal for internal operations. The backend runs on SST v3 with DynamoDB, Cognito authentication, Telnyx voice integration, Stripe billing, and WebRTC for browser-based calling.\n\nThe most technically interesting piece is the autonomous agent runtime - an AI system that can take actions on behalf of the business (scheduling, follow-ups, qualification) with human-in-the-loop approval gates to prevent unwanted automation.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
       "Responsible gambling handlers and compliance",
       "Stripe payments with deposit/withdraw flows",
       "Fail-closed auth with audit logging",
-      "Lead engineer since 2022 — 1,400+ commits",
+      "Lead engineer since 2022 - 1,400+ commits",
     ],
   },
   {
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     description:
       "End-to-end quoting and booking platform for global yacht shipping. Role-based dashboards, booking workflows, and Postgres-backed pricing logic. Started with a voice AI MVP demo that landed the full contract.",
     longDescription:
-      "I built yachttransport.ai as the lead architect and primary developer for Allied Yacht Transport — a global yacht shipping company that needed a modern quoting and booking platform.\n\nThe project started with a voice AI MVP demo using Vapi for conversational booking, which I used to demonstrate my capabilities and land the full contract. From there, I designed and built the complete platform: role-based dashboards for operations and admin teams, quote sharing workflows, booking management, and Postgres-backed pricing logic aligned to their real-world operations.\n\nShipped with CI checks, PR discipline, and documented flows for team continuity after my engagement.",
+      "I built yachttransport.ai as the lead architect and primary developer for Allied Yacht Transport - a global yacht shipping company that needed a modern quoting and booking platform.\n\nThe project started with a voice AI MVP demo using Vapi for conversational booking, which I used to demonstrate my capabilities and land the full contract. From there, I designed and built the complete platform: role-based dashboards for operations and admin teams, quote sharing workflows, booking management, and Postgres-backed pricing logic aligned to their real-world operations.\n\nShipped with CI checks, PR discipline, and documented flows for team continuity after my engagement.",
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "Vapi", "AWS"],
     status: "completed",
     category: "client",
@@ -125,13 +125,13 @@ export const projects: Project[] = [
     description:
       "501(c)(3) nonprofit building an AI-powered animated money mentor that teaches teens financial literacy. Interactive quizzes, AI coach, and donation flows.",
     longDescription:
-      "Home Team Education is a registered 501(c)(3) nonprofit I've been building toward for years, now in its most complete form. The platform features HomeTeam Coach — an AI-powered animated money mentor that teaches teens ages 14-22 how to budget, save, and build real financial confidence.\n\nThe site includes interactive financial literacy quizzes, an AI coach interface, educational programs, donation flows, and resources for parents and schools. Built with a responsible AI and data privacy focus given the young audience.",
+      "Home Team Education is a registered 501(c)(3) nonprofit I've been building toward for years, now in its most complete form. The platform features HomeTeam Coach - an AI-powered animated money mentor that teaches teens ages 14-22 how to budget, save, and build real financial confidence.\n\nThe site includes interactive financial literacy quizzes, an AI coach interface, educational programs, donation flows, and resources for parents and schools. Built with a responsible AI and data privacy focus given the young audience.",
     techStack: ["Next.js", "TypeScript", "AI/LLM integration"],
     status: "live",
     category: "saas",
     url: "https://hometeameducation.org",
     highlights: [
-      "501(c)(3) nonprofit — mission-driven product",
+      "501(c)(3) nonprofit - mission-driven product",
       "AI-powered animated financial literacy coach",
       "Interactive quizzes and personalized learning paths",
       "Resources for teens, parents, and schools",
@@ -173,9 +173,9 @@ export const projects: Project[] = [
     title: "blah3",
     emoji: "\u{1F5E3}\uFE0F",
     description:
-      "Native macOS desktop app for 100% offline Speech-to-Text and Text-to-Speech on Apple Silicon. Built in Rust with zero prior experience — AI gave me the confidence to ship a systems-language product in days.",
+      "Native macOS desktop app for 100% offline Speech-to-Text and Text-to-Speech on Apple Silicon. Built in Rust with zero prior experience - AI gave me the confidence to ship a systems-language product in days.",
     longDescription:
-      "blah3 is a native macOS desktop app for 100% offline Speech-to-Text and Text-to-Speech on Apple Silicon. I built this in Rust with zero prior Rust experience — AI gave me the confidence to jump into a systems language and ship a packaged desktop product in days.\n\nThe app features CoreML-accelerated Whisper models for transcription, kokoro-tiny TTS for speech synthesis, a floating dictation overlay with hotkey support, silence detection, an onboarding wizard, and DMG packaging for distribution. Everything runs locally — no cloud, no API calls, complete privacy.",
+      "blah3 is a native macOS desktop app for 100% offline Speech-to-Text and Text-to-Speech on Apple Silicon. I built this in Rust with zero prior Rust experience - AI gave me the confidence to jump into a systems language and ship a packaged desktop product in days.\n\nThe app features CoreML-accelerated Whisper models for transcription, kokoro-tiny TTS for speech synthesis, a floating dictation overlay with hotkey support, silence detection, an onboarding wizard, and DMG packaging for distribution. Everything runs locally - no cloud, no API calls, complete privacy.",
     techStack: ["Rust", "Tauri", "CoreML", "Whisper", "macOS"],
     status: "completed",
     category: "opensource",
@@ -186,7 +186,7 @@ export const projects: Project[] = [
       "CoreML-accelerated Whisper models for STT",
       "kokoro-tiny TTS for speech synthesis",
       "Floating dictation overlay with hotkeys",
-      "100% offline — complete data privacy",
+      "100% offline - complete data privacy",
       "DMG packaging for macOS distribution",
     ],
     embed: { type: "iframe", src: "https://blah3-website.vercel.app/" },
@@ -232,7 +232,7 @@ export const projects: Project[] = [
     title: "git-tracker",
     emoji: "\u{1F4CA}",
     description:
-      "GitHub Activity Dashboard — tracks commits, PRs, issues, and language stats across repos.",
+      "GitHub Activity Dashboard - tracks commits, PRs, issues, and language stats across repos.",
     longDescription:
       "A GitHub Activity Dashboard that tracks commits, PRs, issues, and language stats across repositories. Built as an open-source tool with a live demo deployed.",
     techStack: ["TypeScript", "GitHub API"],
@@ -250,9 +250,9 @@ export const projects: Project[] = [
     title: "Token Holder",
     emoji: "\u{1F510}",
     description:
-      "Identity, permissioning, and audit fabric for AI agents — Rust core with desktop and hosted deployment targets, federated tenant onboarding, and a per-tenant cloud surface.",
+      "Identity, permissioning, and audit fabric for AI agents - Rust core with desktop and hosted deployment targets, federated tenant onboarding, and a per-tenant cloud surface.",
     longDescription:
-      "Token Holder is the trust layer for AI agents — a Rust-core platform with two deployment targets: a Tauri desktop app for sovereign use and a hosted cloud at cloud.tokenholder.io for managed tenants. It handles agent identity, scoped permissioning, audit logging, and federated tenant onboarding.\n\nThe hosted side is a multi-region SST + ECS Fargate + Aurora Serverless v2 deployment with ACM/CloudFront in front of per-tenant subdomains. The federation layer reconciles wallet identities and Telnyx verify profiles via a daily Lambda cron with alarms and a verified pre-flight runbook.",
+      "Token Holder is the trust layer for AI agents - a Rust-core platform with two deployment targets: a Tauri desktop app for sovereign use and a hosted cloud at cloud.tokenholder.io for managed tenants. It handles agent identity, scoped permissioning, audit logging, and federated tenant onboarding.\n\nThe hosted side is a multi-region SST + ECS Fargate + Aurora Serverless v2 deployment with ACM/CloudFront in front of per-tenant subdomains. The federation layer reconciles wallet identities and Telnyx verify profiles via a daily Lambda cron with alarms and a verified pre-flight runbook.",
     techStack: [
       "Rust",
       "Tauri",
@@ -280,9 +280,9 @@ export const projects: Project[] = [
     title: "Clawnoly",
     emoji: "\u{1F9E0}",
     description:
-      "Claude Code orchestrator and terminal harness. Tauri v2 desktop app — grouped Claude sessions, MCP-bridged agent coordination, sideline queue for human-in-the-loop approvals, and YAML-driven dashboards.",
+      "Claude Code orchestrator and terminal harness. Tauri v2 desktop app - grouped Claude sessions, MCP-bridged agent coordination, sideline queue for human-in-the-loop approvals, and YAML-driven dashboards.",
     longDescription:
-      "Clawnoly is a Tauri v2 desktop app that turns multiple Claude Code sessions into one coordinated workspace. Each project gets a tab with sidebar navigation, session persistence, and grid view for multi-terminal monitoring. Any session can be ejected into a floating window and docked back per tab.\n\nThe MCP bridge lets any Claude session spawn, message, or escalate to other Claude sessions. Human-in-the-loop decisions surface in a dedicated sideline queue with macOS notifications. Everything persists in SQLite — including Claude session IDs — so closing and reopening Clawnoly restores your exact conversation state.\n\nYAML-driven dashboards at `~/.clawnoly/dashboards/` pull live data from vault frontmatter. Token Holder integration adds grant-gated RBAC on every vault read, terminal spawn, and sideline post. Phase 5 (Terminal Grid + Dashboard Engine + Virtual Office Rooms) shipped.",
+      "Clawnoly is a Tauri v2 desktop app that turns multiple Claude Code sessions into one coordinated workspace. Each project gets a tab with sidebar navigation, session persistence, and grid view for multi-terminal monitoring. Any session can be ejected into a floating window and docked back per tab.\n\nThe MCP bridge lets any Claude session spawn, message, or escalate to other Claude sessions. Human-in-the-loop decisions surface in a dedicated sideline queue with macOS notifications. Everything persists in SQLite - including Claude session IDs - so closing and reopening Clawnoly restores your exact conversation state.\n\nYAML-driven dashboards at `~/.clawnoly/dashboards/` pull live data from vault frontmatter. Token Holder integration adds grant-gated RBAC on every vault read, terminal spawn, and sideline post. Phase 5 (Terminal Grid + Dashboard Engine + Virtual Office Rooms) shipped.",
     techStack: [
       "Tauri v2",
       "Rust",
@@ -300,7 +300,7 @@ export const projects: Project[] = [
       "Sideline queue surfaces human-in-the-loop approvals across all sessions",
       "YAML-driven dashboards over vault frontmatter",
       "Token Holder grant-gated RBAC on every endpoint",
-      "Session persistence — restore exact conversation state on relaunch",
+      "Session persistence - restore exact conversation state on relaunch",
     ],
   },
   {
@@ -308,9 +308,9 @@ export const projects: Project[] = [
     title: "KnowMessenger",
     emoji: "\u{1F4DA}",
     description:
-      "Opinionated personal-knowledge workspace — chat + files + paired HTML/Markdown dashboards in one app. Built on the Token Holder identity layer with BYO-key freemium.",
+      "Opinionated personal-knowledge workspace - chat + files + paired HTML/Markdown dashboards in one app. Built on the Token Holder identity layer with BYO-key freemium.",
     longDescription:
-      "KnowMessenger (KM) is an opinionated personal-knowledge bootstrap — chat, vault files, and paired HTML/Markdown dashboards in a single workspace. Designed to be easy for non-power-users and deep for power-users, with embedded coaching, scheduled reviews, and a curated bundled-skills shelf.\n\nKM v2 surfaces a three-pane workspace: vault tree on the left, AI conversation in the center, and a daily questionnaire + live dashboard widget on the right. The product reviews you on a cadence rather than waiting as a blank canvas. Authentication and per-tenant scoping ride the Token Holder federation, with BYO-key as the freemium gate.",
+      "KnowMessenger (KM) is an opinionated personal-knowledge bootstrap - chat, vault files, and paired HTML/Markdown dashboards in a single workspace. Designed to be easy for non-power-users and deep for power-users, with embedded coaching, scheduled reviews, and a curated bundled-skills shelf.\n\nKM v2 surfaces a three-pane workspace: vault tree on the left, AI conversation in the center, and a daily questionnaire + live dashboard widget on the right. The product reviews you on a cadence rather than waiting as a blank canvas. Authentication and per-tenant scoping ride the Token Holder federation, with BYO-key as the freemium gate.",
     techStack: [
       "Next.js",
       "React",

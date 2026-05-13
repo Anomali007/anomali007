@@ -133,7 +133,7 @@ export default async function BlogPostPage({
               ← Back to all posts
             </Link>
 
-            {/* Article frontmatter — bridge-style panel */}
+            {/* Article frontmatter - bridge-style panel */}
             <header
               className="relative mb-10 overflow-hidden border border-amber-500/25 bg-[#050505]/85 backdrop-blur-sm"
               style={{

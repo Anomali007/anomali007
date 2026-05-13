@@ -12,7 +12,7 @@ const STATUS_META: Record<string, { label: string; color: string }> = {
   beta: { label: "BETA", color: "#f59e0b" },
 };
 
-// Curated 12 for the specimen-wall teaser — flagship + current focus first,
+// Curated 12 for the specimen-wall teaser - flagship + current focus first,
 // then paid client work, then public OSS. /projects shows the full list below.
 const TEASER_ORDER = [
   "mass-lead-connect",
@@ -59,7 +59,7 @@ export function GalleryHero() {
           </p>
         </div>
 
-        {/* Vitrine wall — same rhythm as the command bridge panels */}
+        {/* Vitrine wall - same rhythm as the command bridge panels */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {vitrines.map((p, i) => {
             const status = STATUS_META[p.status] ?? STATUS_META.building;
@@ -73,7 +73,7 @@ export function GalleryHero() {
                     "0 0 18px rgba(245,158,11,0.04), inset 0 0 24px rgba(0,0,0,0.7)",
                 }}
               >
-                {/* Panel-chrome top bar — micro version */}
+                {/* Panel-chrome top bar - micro version */}
                 <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between border-b border-amber-500/15 bg-amber-500/5 px-2 py-1">
                   <span className="font-mono text-[8px] tracking-[0.25em] text-amber-500/80">
                     SPEC · {String(i + 1).padStart(2, "0")}

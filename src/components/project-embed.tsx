@@ -50,7 +50,7 @@ export function ProjectEmbed({ title, src, url }: ProjectEmbedProps) {
           </div>
         </div>
 
-        {/* Iframe container — 16:9 */}
+        {/* Iframe container - 16:9 */}
         <div className="relative aspect-video bg-bg">
           {!loaded && (
             <div className="absolute inset-0 flex items-center justify-center">

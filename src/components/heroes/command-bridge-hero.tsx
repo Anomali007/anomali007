@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
 /**
- * Command-Bridge Hero — Severance-style three-monitor desk view.
+ * Command-Bridge Hero - Severance-style three-monitor desk view.
  *
  * Mirrors the public portfolio:
- *   LEFT   — Currently shipping (4 portfolio projects, links to /projects/<slug>)
- *   CENTER — Active code (3 tabs — clickable — public-safe snippets)
- *   RIGHT  — Recent merges (clickable, links into the portfolio + GitHub)
- *   FOOTER — Auto-rotating live event log + clock
+ *   LEFT   - Currently shipping (4 portfolio projects, links to /projects/<slug>)
+ *   CENTER - Active code (3 tabs - clickable - public-safe snippets)
+ *   RIGHT  - Recent merges (clickable, links into the portfolio + GitHub)
+ *   FOOTER - Auto-rotating live event log + clock
  */
 
 type Shipping = {
@@ -510,7 +510,7 @@ export function CommandBridgeHero() {
           className="grid w-full max-w-[1600px] grid-cols-1 items-stretch gap-6 lg:grid-cols-3 lg:gap-8"
           style={{ perspective: "1500px" }}
         >
-          {/* LEFT — Currently shipping (clickable) */}
+          {/* LEFT - Currently shipping (clickable) */}
           <Panel
             title="CURRENTLY SHIPPING"
             className="h-[460px] transform-gpu transition-transform duration-700 hover:[transform:rotateY(0deg)_translateZ(0)] lg:h-[580px]"
@@ -542,7 +542,7 @@ export function CommandBridgeHero() {
             </div>
           </Panel>
 
-          {/* CENTER — Active code (tabs are clickable) */}
+          {/* CENTER - Active code (tabs are clickable) */}
           <Panel
             title="RUST DESKTOP APP"
             subtitle="TOKEN HOLDER"
@@ -603,7 +603,7 @@ export function CommandBridgeHero() {
             </div>
           </Panel>
 
-          {/* RIGHT — Recent merges (clickable) */}
+          {/* RIGHT - Recent merges (clickable) */}
           <Panel
             title="RECENT MERGES"
             className="h-[460px] transform-gpu transition-transform duration-700 hover:[transform:rotateY(0deg)_translateZ(0)] lg:h-[580px]"

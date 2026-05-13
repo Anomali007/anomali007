@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
+    template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 460,
         height: 460,
-        alt: `${siteConfig.name} — Builder, Engineer, Anomali`,
+        alt: `${siteConfig.name} - Builder, Engineer, Anomali`,
       },
     ],
   },

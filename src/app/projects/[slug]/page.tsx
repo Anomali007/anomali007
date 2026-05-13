@@ -64,7 +64,7 @@ export default async function ProjectDetailPage({
             ← All Projects
           </Link>
 
-          {/* Specimen header — bridge-style panel */}
+          {/* Specimen header - bridge-style panel */}
           <header
             className="relative mb-10 overflow-hidden border border-amber-500/25 bg-[#050505]/85 backdrop-blur-sm"
             style={{

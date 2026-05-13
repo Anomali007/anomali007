@@ -50,7 +50,7 @@ export function ArmoryHero() {
           </p>
         </div>
 
-        {/* Armory grid — same shape as Projects */}
+        {/* Armory grid - same shape as Projects */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {slots.map((slot, i) => (
             <div

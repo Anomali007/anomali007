@@ -4,7 +4,7 @@ import Image from "next/image";
  * Shared command-bridge atmosphere primitives.
  *
  * Drop into any page hero to inherit the Severance / Daedalus aesthetic from
- * the home command-bridge — hexagon grid background, AnomaliMark header,
+ * the home command-bridge - hexagon grid background, AnomaliMark header,
  * AlienWatermark, brass plate utilities. Pair with `.bridge-atmosphere` (CSS)
  * on a wrapper for scan lines + radial vignette.
  */

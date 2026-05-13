@@ -23,7 +23,7 @@ const CURRENTLY = [
     emoji: "🎙️",
     line: (
       <>
-        Building <span className="text-amber-200">MASS Lead Connect</span> —
+        Building <span className="text-amber-200">MASS Lead Connect</span> -
         multi-tenant AI voice receptionist SaaS
       </>
     ),
@@ -32,7 +32,7 @@ const CURRENTLY = [
     emoji: "🔐",
     line: (
       <>
-        Shipping <span className="text-amber-200">Token Holder</span> — identity
+        Shipping <span className="text-amber-200">Token Holder</span> - identity
         &amp; audit fabric for AI agents
       </>
     ),
@@ -41,7 +41,7 @@ const CURRENTLY = [
     emoji: "📚",
     line: (
       <>
-        Building <span className="text-amber-200">KnowMessenger</span> —
+        Building <span className="text-amber-200">KnowMessenger</span> -
         opinionated personal-knowledge workspace
       </>
     ),
@@ -97,7 +97,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero — Command Bridge */}
+      {/* Hero - Command Bridge */}
       <CommandBridgeHero />
 
       {/* Everything below the hero lives inside the same bridge atmosphere */}
@@ -279,7 +279,7 @@ export default function Home() {
 
                 <div>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-amber-200/75 sm:text-base">
-                    I&apos;m Mali Franzese — Founder-Engineer at{" "}
+                    I&apos;m Mali Franzese - Founder-Engineer at{" "}
                     <a
                       href="https://themasslab.com"
                       target="_blank"

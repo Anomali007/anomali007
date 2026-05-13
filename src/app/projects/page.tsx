@@ -7,7 +7,7 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "SaaS platforms, developer tools, and open source projects built by Mali Franzese — Founder-Engineer at The MASS Lab, shipping production software end-to-end.",
+    "SaaS platforms, developer tools, and open source projects built by Mali Franzese - Founder-Engineer at The MASS Lab, shipping production software end-to-end.",
 };
 
 const categories = [

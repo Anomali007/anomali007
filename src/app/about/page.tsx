@@ -6,7 +6,7 @@ import { HexagonGrid } from "@/components/atmosphere";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mali Franzese — Founder-Engineer at The MASS Lab. The story, the workflow, and what comes next.",
+    "Mali Franzese - Founder-Engineer at The MASS Lab. The story, the workflow, and what comes next.",
 };
 
 function SectionHeader({
@@ -89,13 +89,13 @@ export default function AboutPage() {
           <Panel kicker="THREAD · 001">
             <div className="max-w-3xl space-y-4 text-sm leading-relaxed text-amber-200/75 sm:text-base">
               <p>
-                I spent a year in electrical engineering at ASU (2015–2016),
+                I spent a year in electrical engineering at ASU (2015-2016),
                 then pivoted to software through Hack Reactor in LA in 2018.
-                After that I built my own practice — The MASS Lab — taking on
+                After that I built my own practice - The MASS Lab - taking on
                 client projects and building internal products.
               </p>
               <p>
-                The MASS Lab is my engineering practice — where I take on
+                The MASS Lab is my engineering practice - where I take on
                 fractional CTO engagements and build internal products like
                 MASS Lead Connect.
               </p>
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 Starting with GitHub Copilot and evolving to Claude Code as
                 my daily driver, I went from building features to shipping
                 entire multi-tenant SaaS platforms solo. 3,000+ commits
-                across 20+ active repos — not by cutting corners, but by
+                across 20+ active repos - not by cutting corners, but by
                 giving AI deep autonomy while maintaining senior-level
                 review on every line.
               </p>
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 review to deployment.
               </p>
               <p>
-                I give AI deep autonomy — but every line gets senior review.
+                I give AI deep autonomy - but every line gets senior review.
                 Tests, types, and security passes are non-negotiable. The
                 result is a development pace that lets one engineer do what
                 typically requires a team, without sacrificing quality.
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 Open to full-time senior or principal engineering roles,
                 applied AI positions, and fractional CTO engagements.
                 I&apos;m interested in teams where AI-assisted development is
-                a core competency — not a novelty.
+                a core competency - not a novelty.
               </p>
             </div>
           </Panel>

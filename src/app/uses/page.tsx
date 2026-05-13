@@ -25,7 +25,7 @@ const uses: UsesSection[] = [
       {
         name: "Claude Code",
         detail:
-          "Primary development tool — 6+ months of daily use, high weekly volume",
+          "Primary development tool - 6+ months of daily use, high weekly volume",
       },
       { name: "Cursor", detail: "AI-native code editor" },
       { name: "VS Code", detail: "Fallback and specific workflows" },
