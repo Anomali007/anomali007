@@ -70,7 +70,11 @@ const CODE_TABS: Tab[] = [
         <span className="text-amber-500">pub fn</span>{" "}
         <span className="text-sky-400">create_identity</span>(
       </>,
-      <>{`  bearer: &Bearer,`}</>,
+      <>
+        {`  bearer: &Bearer,`}
+        {"  "}
+        <span className="text-amber-700/80">// tenant-scoped caller</span>
+      </>,
       <>{`  request: &CreateIdentityRequest,`}</>,
       <>
         ) -&gt; Result&lt;<span className="text-amber-300">Identity</span>&gt; {"{"}
@@ -78,7 +82,8 @@ const CODE_TABS: Tab[] = [
       <>
         {"  "}
         <span className="text-amber-500">let</span> tenant_id ={" "}
-        bearer.tenant_id.to_string();
+        bearer.tenant_id.to_string();{"  "}
+        <span className="text-amber-700/80">// pinned from bearer, not body</span>
       </>,
       <>
         {"  "}
@@ -116,12 +121,14 @@ const CODE_TABS: Tab[] = [
       <>
         {"  "}
         <span className="text-amber-500">let</span> wallet =
-        ctx.wallet_identities().await?;
+        ctx.wallet_identities().await?;{"  "}
+        <span className="text-amber-700/80">// source of truth</span>
       </>,
       <>
         {"  "}
         <span className="text-amber-500">let</span> telnyx =
-        ctx.telnyx_verify_profiles().await?;
+        ctx.telnyx_verify_profiles().await?;{"  "}
+        <span className="text-amber-700/80">// downstream mirror</span>
       </>,
       <>
         {"  "}
@@ -141,11 +148,16 @@ const CODE_TABS: Tab[] = [
       <>
         {"      "}
         <span className="text-amber-500">if</span> p.status != id.status{" "}
-        {"{"} drift.push((id, p)); {"}"}
+        {"{"} drift.push((id, p)); {"}"}{"  "}
+        <span className="text-amber-700/80">// flag mismatch</span>
       </>,
       <>{`    }`}</>,
       <>{`  }`}</>,
-      <>{`  alert_if_drift(&drift)?;`}</>,
+      <>
+        {`  alert_if_drift(&drift)?;`}
+        {"  "}
+        <span className="text-amber-700/80">// page on-call if non-empty</span>
+      </>,
       <>{`  Ok(Report::from(drift))`}</>,
       <>{`}`}</>,
     ],
@@ -168,9 +180,17 @@ const CODE_TABS: Tab[] = [
       <>{`    actor: bearer.identity_id,`}</>,
       <>{`    tenant: bearer.tenant_id,`}</>,
       <>{`    kind: event.kind(),`}</>,
-      <>{`    payload: event.serialize_redacted(),`}</>,
+      <>
+        {`    payload: event.serialize_redacted(),`}
+        {"  "}
+        <span className="text-amber-700/80">// PII stripped pre-write</span>
+      </>,
       <>{`  };`}</>,
-      <>{`  AUDIT_LOG.append(row);`}</>,
+      <>
+        {`  AUDIT_LOG.append(row);`}
+        {"  "}
+        <span className="text-amber-700/80">// append-only, never mutated</span>
+      </>,
       <>
         {"  "}
         <span className="text-amber-700/80">
@@ -480,7 +500,7 @@ export function CommandBridgeHero() {
         </h1>
         <p className="max-w-2xl px-6 text-center text-sm text-amber-200/60 sm:text-base">
           Founder-Engineer at The MASS Lab · 3,000+ commits across 20+ active
-          repos · Claude Code as daily driver
+          repos in 10 months
         </p>
         <div className="mt-1 h-px w-1/3 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
       </header>
@@ -555,12 +575,14 @@ export function CommandBridgeHero() {
               <div className="relative flex-grow overflow-hidden font-mono text-[12px] leading-relaxed sm:text-[13px]">
                 <div className="absolute top-0 bottom-0 left-0 flex w-8 select-none flex-col items-end border-r border-amber-500/20 pr-2 text-amber-800/60">
                   {tab.lines.map((_, i) => (
-                    <span key={i}>{tab.lineStart + i}</span>
+                    <span key={i} className="leading-relaxed">
+                      {tab.lineStart + i}
+                    </span>
                   ))}
                 </div>
                 <div className="pl-12 text-amber-200/75">
                   {tab.lines.map((ln, i) => (
-                    <p key={`${tab.id}-${i}`}>
+                    <p key={`${tab.id}-${i}`} className="whitespace-pre">
                       {ln}
                       {i === tab.lines.length - 2 && (
                         <span className="ml-1 inline-block h-3 w-2 animate-pulse bg-amber-400" />
