@@ -26,7 +26,7 @@
 | Product | What it is |
 |---|---|
 | **MASS Lead Connect** | Multi-tenant AI voice receptionist. Answers, routes and books customer calls, with an auditable record of every interaction.<br><sub>Next.js · SST v3 on AWS · DynamoDB · Cognito · Telnyx · Stripe · WebRTC · agent runtime with human-in-the-loop approvals</sub> |
-| **[Beat The Odds](https://btofantasy.us)** | Real-time fantasy sports platform. Web and kiosk experiences, merchandise rewards, responsible-gaming controls, admin dashboards. **Co-Founder &amp; CTO.** Architecture and delivery since August 2022.<br><sub>Next.js · AWS · Stripe</sub> |
+| **[Beat The Odds](https://btofantasy.us)** | Real-time fantasy sports platform. Web and kiosk experiences, merchandise rewards, responsible-gaming controls, admin dashboards. **Co-Founder &amp; CTO.** Architecture and delivery since 2022.<br><sub>Next.js · AWS · Stripe</sub> |
 | **[Token Holder](https://tokenholder.io)** | Identity, permissioning and audit fabric for AI agents. Grant-gated access with cryptographically signed audit trails.<br><sub>Rust core · Tauri desktop · Aurora Serverless v2 · ECS Fargate · per-tenant subdomains</sub> |
 | **[yachttransport.ai](https://yachttransport.ai)** | Quoting and booking platform for global yacht shipping. Role-based dashboards, booking workflows, Postgres-backed pricing logic. Won the contract off a voice-AI MVP demo.<br><sub>Next.js · PostgreSQL · Vapi</sub> |
 | **[Home Team Education](https://hometeameducation.org/)** | 501(c)(3) nonprofit I co-founded. An AI money mentor that teaches teens financial literacy.<br><sub>Next.js · AI coach · interactive quizzes · donation flows</sub> |
@@ -85,10 +85,10 @@ GitHub's own contribution graph further down this page is the unedited version.
 ## Now
 
 - Building **The MASS Lab**, an independent engineering practice and product studio.
-- **Co-Founder & CTO at Beat The Odds**, architecture and delivery, since August 2022.
+- **Co-Founder & CTO at Beat The Odds**, architecture and delivery, since 2022.
 - **B.S. Cybersecurity and Information Assurance at Western Governors University**, in progress.
 - Going deeper in **Rust**, across the Token Holder and Clawnoly desktop cores.
-- Path so far: one year of electrical engineering at Arizona State, Hack Reactor in 2018, The MASS Lab from 2019, Python APIs on AWS at Inter-Con, then Beat The Odds from August 2022.
+- Path so far: one year of electrical engineering at Arizona State, Hack Reactor in 2018, The MASS Lab from 2019, Python APIs on AWS at Inter-Con, then Beat The Odds from 2022.
 
 ## About
 
