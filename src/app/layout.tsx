@@ -112,15 +112,24 @@ export default function RootLayout({
     url: siteConfig.url,
     mainEntityOfPage: `${siteConfig.url}/about`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    jobTitle: "Founder-Engineer",
+    // Two concurrent current roles. BTO title CTO agreed with the co-founder
+    // 2026-07-27 (contract paperwork pending, but the title itself is settled).
+    jobTitle: ["Founder-Engineer", "Chief Technology Officer"],
     description:
       "Founder-Engineer at The MASS Lab, an independent software practice. Builds and ships production multi-tenant SaaS platforms end to end, with AI-assisted development as a core method. Currently pursuing a B.S. in Cybersecurity at Western Governors University.",
-    worksFor: {
-      "@type": "Organization",
-      "@id": `${orgSites.theMassLab}/#organization`,
-      name: "The MASS Lab",
-      url: orgSites.theMassLab,
-    },
+    worksFor: [
+      {
+        "@type": "Organization",
+        "@id": `${orgSites.theMassLab}/#organization`,
+        name: "The MASS Lab",
+        url: orgSites.theMassLab,
+      },
+      {
+        "@type": "Organization",
+        name: "Beat The Odds",
+        url: "https://btofantasy.us",
+      },
+    ],
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "Hack Reactor",
