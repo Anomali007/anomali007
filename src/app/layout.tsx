@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Geist_Mono } from "next/font/google";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { siteConfig } from "@/lib/constants";
+import { siteConfig, personId, orgSites } from "@/lib/constants";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,8 +31,6 @@ export const metadata: Metadata = {
     "Mali Franzese",
     "Anomali007",
     "software engineer",
-    "principal engineer",
-    "fractional CTO",
     "AI-native development",
     "Next.js",
     "TypeScript",
@@ -47,18 +45,21 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    firstName: siteConfig.firstName,
+    lastName: siteConfig.lastName,
+    username: siteConfig.handle,
     images: [
       {
         url: siteConfig.ogImage,
         width: 460,
         height: 460,
-        alt: `${siteConfig.name} - Builder, Engineer, Anomali`,
+        alt: siteConfig.title,
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
@@ -85,15 +86,74 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Entity home. This block is the canonical Person node for the whole site;
+  // it renders from the root layout so `/` and `/about` stay identical by
+  // construction rather than by copy-paste.
+  //
+  // Deliberate honesty + privacy choices, do not "improve" without reading the
+  // 2026-07-27 name SEO/AEO audit first:
+  //   - WGU is `affiliation`, NOT `alumniOf`. The B.S. is in progress.
+  //   - ASU is omitted entirely. One year, no degree, so no schema claim.
+  //   - jobTitle is "Founder-Engineer". No self-assigned "Principal".
+  //   - No address, homeLocation, telephone or email. workLocation is
+  //     region-only, on purpose.
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": personId,
     name: siteConfig.name,
+    alternateName: siteConfig.handle,
     url: siteConfig.url,
+    mainEntityOfPage: `${siteConfig.url}/about`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    jobTitle: "Independent Principal Software Engineer",
-    worksFor: { "@type": "Organization", name: "The MASS Lab" },
-    sameAs: [siteConfig.github, siteConfig.linkedin],
+    jobTitle: "Founder-Engineer",
+    description:
+      "Founder-Engineer at The MASS Lab, an independent software practice. Builds and ships production multi-tenant SaaS platforms end to end, with AI-assisted development as a core method. Currently pursuing a B.S. in Cybersecurity at Western Governors University.",
+    worksFor: {
+      "@type": "Organization",
+      "@id": `${orgSites.theMassLab}/#organization`,
+      name: "The MASS Lab",
+      url: orgSites.theMassLab,
+    },
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Hack Reactor",
+      url: "https://www.hackreactor.com",
+    },
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "Western Governors University",
+      url: "https://www.wgu.edu",
+    },
+    knowsAbout: [
+      "AI-assisted software development",
+      "multi-tenant SaaS architecture",
+      "TypeScript",
+      "Rust",
+      "Next.js",
+      "Amazon Web Services",
+      "CI/CD and deployment automation",
+      "cybersecurity",
+    ],
+    workLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "TX",
+        addressCountry: "US",
+      },
+    },
+    sameAs: [
+      siteConfig.github,
+      // TODO(owner): verify LinkedIn slug resolves before shipping.
+      siteConfig.linkedin,
+      // TODO(owner): confirm you control this handle, remove this sameAs entry if not.
+      siteConfig.x,
+      orgSites.theMassLab,
+      orgSites.massLabConnect,
+      orgSites.tokenHolder,
+      orgSites.f6s,
+    ],
   };
 
   return (

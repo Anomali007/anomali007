@@ -1,0 +1,31 @@
+# Mali Franzese
+
+> Founder-Engineer at The MASS Lab, an independent software practice based in Texas.
+> Builds and ships production multi-tenant SaaS platforms end to end, with AI-assisted
+> development as a core method. Currently pursuing a B.S. in Cybersecurity at Western
+> Governors University.
+
+Also known as: Anomali007 (handle, GitHub and personal site).
+Not affiliated with Anomali Incorporated, the cybersecurity company.
+Not related to Michael Franzese or Sonny Franzese.
+
+## Primary
+
+- [About](https://anomali007.com/about): background, timeline, and how the practice works.
+- [Projects](https://anomali007.com/projects): shipped work, one page each.
+- [Blog](https://anomali007.com/blog): notes on AI-assisted engineering practice.
+
+## Practice and products
+
+- [The MASS Lab](https://themasslab.com): the engineering practice. Legal entity MASS LLC.
+- [MASS Lab Connect](https://masslabconnect.com): managed AI that answers, routes and books
+  customer calls, with an auditable record of every interaction.
+- [Token Holder](https://tokenholder.io): a data-sovereignty layer between AI agents and
+  your data. Grant-gated access and signed audit trails.
+- [Home Team Education](https://hometeameducation.org): youth financial-literacy curriculum
+  and free resources.
+
+## Profiles
+
+- [GitHub](https://github.com/Anomali007)
+- [LinkedIn](https://www.linkedin.com/in/malifranzese)

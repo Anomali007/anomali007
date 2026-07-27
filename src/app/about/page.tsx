@@ -125,6 +125,23 @@ export default function AboutPage() {
 
         <Section>
           <SectionHeader
+            kicker="IDENTITY"
+            title="The Name"
+            subtitle="Who I am, and who I am not."
+          />
+          <Panel kicker="DISAMBIGUATION">
+            <p className="max-w-3xl text-sm leading-relaxed text-amber-200/75 sm:text-base">
+              A note on the name. &ldquo;Anomali007&rdquo; is a handle, a play
+              on Mali, and has been mine for years. It has nothing to do with
+              Anomali Incorporated, the cybersecurity company, and I am not
+              affiliated with them. I am also not related to Michael Franzese
+              or Sonny Franzese, who dominate search results for the surname.
+            </p>
+          </Panel>
+        </Section>
+
+        <Section>
+          <SectionHeader
             kicker="SIGNAL"
             title="Shipping Velocity"
             subtitle="GitHub activity over the last year."
