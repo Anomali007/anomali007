@@ -18,8 +18,11 @@ export const siteConfig = {
   // profile ranking #1 for the name is /in/malifranzese (no hyphen); the old
   // value here was /in/mali-franzese (hyphen) and did not resolve.
   linkedin: "https://www.linkedin.com/in/malifranzese",
-  // TODO(owner): confirm you control this handle, remove this sameAs entry if not.
-  x: "https://x.com/Anomali007",
+  // VERIFIED in-browser 2026-07-27: x.com/Anomali007 has display name "Anomali07",
+  // 0 posts, 0 followers. x.com/themasslabdev has display name "Mali Franzese",
+  // 0 posts, 3 followers. Use the one that carries his name.
+  x: "https://x.com/themasslabdev",
+  xHandle: "@themasslabdev",
   email: "mali@themasslab.com",
   ogImage: "/images/avatar.jpg",
 };

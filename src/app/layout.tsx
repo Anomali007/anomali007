@@ -63,7 +63,9 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: `@${siteConfig.handle}`,
+    // Was `@${siteConfig.handle}` = @Anomali007, verified 2026-07-27 as display
+    // name "Anomali07" with 0 followers. @themasslabdev carries his actual name.
+    creator: siteConfig.xHandle,
   },
   alternates: {
     canonical: siteConfig.url,
@@ -152,7 +154,6 @@ export default function RootLayout({
       // TODO(owner): verify LinkedIn slug resolves before shipping.
       siteConfig.linkedin,
       siteConfig.huggingface,
-      // TODO(owner): confirm you control this handle, remove this sameAs entry if not.
       siteConfig.x,
       orgSites.theMassLab,
       orgSites.massLabConnect,
