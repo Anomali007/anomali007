@@ -102,7 +102,11 @@ export default function RootLayout({
     "@type": "Person",
     "@id": personId,
     name: siteConfig.name,
-    alternateName: siteConfig.handle,
+    // All three names he actually goes by. Each is a distinct query.
+    alternateName: [siteConfig.handle, "anomali", siteConfig.legalName],
+    // Not vanity. The 2026-07-27 AEO measurement recorded ChatGPT using "she"/"her"
+    // four times in one answer because nothing in the public record resolves it.
+    gender: "Male",
     url: siteConfig.url,
     mainEntityOfPage: `${siteConfig.url}/about`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
@@ -147,6 +151,7 @@ export default function RootLayout({
       siteConfig.github,
       // TODO(owner): verify LinkedIn slug resolves before shipping.
       siteConfig.linkedin,
+      siteConfig.huggingface,
       // TODO(owner): confirm you control this handle, remove this sameAs entry if not.
       siteConfig.x,
       orgSites.theMassLab,

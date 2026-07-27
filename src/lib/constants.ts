@@ -9,7 +9,11 @@ export const siteConfig = {
   description:
     "Mali Franzese is a founder-engineer at The MASS Lab, an independent software practice in Texas. He builds and ships production multi-tenant SaaS platforms end to end, with AI-assisted development as a core method.",
   url: "https://anomali007.com",
+  legalName: "Mali Luciano Franzese",
   github: "https://github.com/Anomali007",
+  // Found on Google page 1 during the 2026-07-27 AEO leg. Real profile, high-authority
+  // domain in his exact field, currently empty. Handle is `anomali`, NOT `anomali007`.
+  huggingface: "https://huggingface.co/anomali",
   // TODO(owner): verify LinkedIn slug resolves before shipping. The indexed
   // profile ranking #1 for the name is /in/malifranzese (no hyphen); the old
   // value here was /in/mali-franzese (hyphen) and did not resolve.
