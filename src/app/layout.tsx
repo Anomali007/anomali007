@@ -160,7 +160,6 @@ export default function RootLayout({
     },
     sameAs: [
       siteConfig.github,
-      // TODO(owner): verify LinkedIn slug resolves before shipping.
       siteConfig.linkedin,
       siteConfig.huggingface,
       siteConfig.x,

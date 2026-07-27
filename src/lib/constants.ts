@@ -14,9 +14,8 @@ export const siteConfig = {
   // Found on Google page 1 during the 2026-07-27 AEO leg. Real profile, high-authority
   // domain in his exact field, currently empty. Handle is `anomali`, NOT `anomali007`.
   huggingface: "https://huggingface.co/anomali",
-  // TODO(owner): verify LinkedIn slug resolves before shipping. The indexed
-  // profile ranking #1 for the name is /in/malifranzese (no hyphen); the old
-  // value here was /in/mali-franzese (hyphen) and did not resolve.
+  // CONFIRMED by Mali 2026-07-27: no hyphen. The prior value /in/mali-franzese was
+  // wrong and had been shipped in both the JSON-LD sameAs and the profile README.
   linkedin: "https://www.linkedin.com/in/malifranzese",
   // VERIFIED in-browser 2026-07-27: x.com/Anomali007 has display name "Anomali07",
   // 0 posts, 0 followers. x.com/themasslabdev has display name "Mali Franzese",
