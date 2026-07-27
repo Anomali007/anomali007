@@ -112,9 +112,13 @@ export default function RootLayout({
     url: siteConfig.url,
     mainEntityOfPage: `${siteConfig.url}/about`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    // Two concurrent current roles. BTO title CTO agreed with the co-founder
-    // 2026-07-27 (contract paperwork pending, but the title itself is settled).
-    jobTitle: ["Founder-Engineer", "Chief Technology Officer"],
+    // Two concurrent current roles. BTO title settled 2026-07-27 as
+    // "Co-Founder & CTO" and updated on LinkedIn the same day. Co-founder is
+    // accurate: he began building BTO with Chris in 2022, formalized later.
+    // Deliberately no start date here, because his co-founder dates his own
+    // BTO start at Jan 2024 and two co-founders should not publish different
+    // founding timelines for the same company.
+    jobTitle: ["Founder-Engineer", "Co-Founder & CTO"],
     description:
       "Founder-Engineer at The MASS Lab, an independent software practice. Builds and ships production multi-tenant SaaS platforms end to end, with AI-assisted development as a core method. Currently pursuing a B.S. in Cybersecurity at Western Governors University.",
     worksFor: [
