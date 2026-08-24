@@ -27,7 +27,10 @@ export default defineConfig({
   webServer: process.env.SKIP_WEB_SERVER
     ? undefined
     : {
-        command: "pnpm dev",
+        // `next dev` binds 3000 unless told otherwise, while BASE_URL above
+        // defaults to 3001, so the runner waited on a port nothing was ever
+        // listening on and every run died at the 60s webServer timeout.
+        command: `pnpm dev --port ${PORT}`,
         url: BASE_URL,
         reuseExistingServer: !process.env.CI,
         timeout: 60_000,

@@ -5,13 +5,14 @@ test("home renders with command-bridge hero (3 panels + event log)", async ({
 }) => {
   const response = await page.goto("/");
   expect(response?.status()).toBe(200);
+  // The NAME is the entity, not the handle and not the tagline.
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    /I Build Things\./i,
+    /Mali Franzese/i,
   );
-  // Three monitors + bottom event-log
-  await expect(page.getByText("CURRENTLY SHIPPING")).toBeVisible();
-  await expect(page.getByText("RECENT MERGES")).toBeVisible();
-  await expect(page.getByText("[ STREAMING ]")).toBeVisible();
+  await expect(page.getByText("I Build Things.")).toBeVisible();
+  // Three monitors + bottom ship log
+  await expect(page.getByText("IN PRODUCTION").first()).toBeVisible();
+  await expect(page.getByText("SHIP LOG").first()).toBeVisible();
 });
 
 test.describe("inner pages render with their themed hero (CSS-styled)", () => {
@@ -117,14 +118,14 @@ test.describe("refreshed metrics", () => {
       "960+ commits across 22",
     );
     // Featured shipping shows portfolio project names (not internal repo paths)
-    const currentlyShipping = page
+    const inProduction = page
       .locator("section")
-      .filter({ hasText: "CURRENTLY SHIPPING" });
+      .filter({ hasText: "IN PRODUCTION" });
     await expect(
-      currentlyShipping.getByText("MASS Lead Connect", { exact: true }).first(),
+      inProduction.getByText("MASS Lead Connect", { exact: true }).first(),
     ).toBeVisible();
     await expect(
-      currentlyShipping.getByText("Token Holder", { exact: true }).first(),
+      inProduction.getByText("Token Holder", { exact: true }).first(),
     ).toBeVisible();
   });
 
@@ -134,5 +135,107 @@ test.describe("refreshed metrics", () => {
     await expect(page.locator("body")).not.toContainText(
       "960+ commits across 22",
     );
+  });
+});
+
+/**
+ * Claim guards.
+ *
+ * These are not feature tests. Each one pins a specific claim that was wrong on
+ * the live site and would contradict Mali in a recruiter screen if it came
+ * back. They are cheap and they fail loudly, which is the only reason a content
+ * fix survives the next content pass.
+ */
+test.describe("claim guards", () => {
+  const PAGES = [
+    "/",
+    "/about",
+    "/projects",
+    "/projects/ai-voice-receptionist",
+    "/projects/beat-the-odds",
+    "/projects/mass-lead-connect",
+  ];
+
+  test("the retired ~50% / ~30% voice metric appears nowhere", async ({
+    page,
+  }) => {
+    for (const path of PAGES) {
+      await page.goto(path);
+      const body = await page.locator("body").innerText();
+      expect(
+        body,
+        `retired call-handling metric resurfaced on ${path}`,
+      ).not.toMatch(/50\s?%\s*(reduction|less)|call handling ~?50/i);
+      expect(body, `retired bookings metric resurfaced on ${path}`).not.toMatch(
+        /30\s?%\s*(increase|more)|bookings ~?30/i,
+      );
+    }
+  });
+
+  test("Anthony Franzese never appears (it is his late uncle)", async ({
+    page,
+  }) => {
+    for (const path of PAGES) {
+      await page.goto(path);
+      await expect(page.locator("body"), path).not.toContainText(
+        "Anthony Franzese",
+      );
+    }
+  });
+
+  test("Beat The Odds carries the current title, not the drifted ones", async ({
+    page,
+  }) => {
+    await page.goto("/projects/beat-the-odds");
+    const body = await page.locator("body").innerText();
+    expect(body).toContain("Co-Founder & CTO");
+    expect(body).not.toMatch(/lead engineer/i);
+    expect(body).not.toMatch(/Chief Information Officer|\bCIO\b/);
+    expect(body).not.toMatch(/Lead Full-Stack/i);
+  });
+
+  test("MASS Lab is dated 2019, never 2017", async ({ page }) => {
+    await page.goto("/about");
+    const body = await page.locator("body").innerText();
+    expect(body).toContain("2019");
+    expect(body).not.toContain("2017");
+  });
+
+  test("shipped-but-unsold products state their zero out loud", async ({
+    page,
+  }) => {
+    await page.goto("/projects/beat-the-odds");
+    await expect(page.getByText("What this does not claim")).toBeVisible();
+    await expect(page.locator("body")).toContainText("no revenue");
+
+    await page.goto("/projects/mass-lead-connect");
+    await expect(page.getByText("What this does not claim")).toBeVisible();
+    await expect(page.locator("body")).toContainText("delivered zero times");
+  });
+
+  test("the hero ship log is dated rather than pretending to be live", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const body = await page.locator("body").innerText();
+    // The old panel rendered "10m ago" / "1h ago" against invented PR hashes.
+    expect(body).not.toMatch(/\d+[mh] ago/);
+    expect(body).not.toContain("[ STREAMING ]");
+    // Real, dated, sourced events.
+    expect(body).toContain("2026-06-18");
+    expect(body).toContain("2026-08-10");
+  });
+
+  test("every page exposes a skip link and a main landmark", async ({
+    page,
+  }) => {
+    for (const path of PAGES) {
+      await page.goto(path);
+      await expect(page.locator("a.skip-link"), path).toHaveAttribute(
+        "href",
+        "#main",
+      );
+      await expect(page.locator("main#main"), path).toHaveCount(1);
+    }
   });
 });
