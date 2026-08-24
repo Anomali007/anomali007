@@ -91,7 +91,7 @@ export default function AboutPage() {
               <p>
                 I spent a year in electrical engineering at ASU (2015-2016),
                 then pivoted to software through Hack Reactor in LA in 2018.
-                After that I built my own practice - The MASS Lab - taking on
+                In 2019 I started my own practice - The MASS Lab - taking on
                 client projects and building internal products.
               </p>
               <p>
@@ -101,10 +101,10 @@ export default function AboutPage() {
               </p>
               <p>
                 Along the way I worked at Inter-Con building Python APIs on
-                AWS, became lead engineer at Beat The Odds building a
-                real-time fantasy sports platform, and shipped platforms for
-                clients ranging from yacht transport logistics to nonprofit
-                financial literacy.
+                AWS, co-founded Beat The Odds where I am Co-Founder &amp; CTO,
+                owning architecture and delivery of a real-time fantasy sports
+                platform, and shipped platforms for clients ranging from yacht
+                transport logistics to nonprofit financial literacy.
               </p>
               <p>
                 The shift to AI-native development changed everything.

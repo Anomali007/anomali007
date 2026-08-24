@@ -14,9 +14,9 @@ type Waypoint = {
 const waypoints: Waypoint[] = [
   { year: "2015", city: "Tempe, AZ", label: "ASU - 1 yr, Electrical Engineering" },
   { year: "2018", city: "Los Angeles", label: "Hack Reactor - software pivot" },
-  { year: "2019", city: "-", label: "The MASS Lab - first clients" },
+  { year: "2019", city: "-", label: "The MASS Lab founded - first clients" },
   { year: "2021", city: "Remote", label: "Inter-Con - Python APIs on AWS" },
-  { year: "2022", city: "Remote", label: "Beat The Odds - lead engineer" },
+  { year: "2022", city: "Remote", label: "Beat The Odds - Co-Founder & CTO" },
   { year: "2026", city: "Central Texas", label: "Founder-Engineer · The MASS Lab" },
 ];
 
@@ -30,7 +30,7 @@ export function OriginWallHero() {
         <div className="mb-6 flex items-center justify-between">
           <AnomaliMark />
           <div className="hidden font-mono text-[10px] uppercase tracking-[0.25em] text-amber-500/80 sm:block">
-            ORIGIN · 2017 → 2026
+            ORIGIN · 2015 → 2026
           </div>
         </div>
 

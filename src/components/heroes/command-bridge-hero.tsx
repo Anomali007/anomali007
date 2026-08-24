@@ -73,7 +73,7 @@ const CODE_TABS: Tab[] = [
       <>
         {`  bearer: &Bearer,`}
         {"  "}
-        <span className="text-amber-700/80">// tenant-scoped caller</span>
+        <span className="text-amber-700/80">{"// tenant-scoped caller"}</span>
       </>,
       <>{`  request: &CreateIdentityRequest,`}</>,
       <>
@@ -83,7 +83,7 @@ const CODE_TABS: Tab[] = [
         {"  "}
         <span className="text-amber-500">let</span> tenant_id ={" "}
         bearer.tenant_id.to_string();{"  "}
-        <span className="text-amber-700/80">// pinned from bearer, not body</span>
+        <span className="text-amber-700/80">{"// pinned from bearer, not body"}</span>
       </>,
       <>
         {"  "}
@@ -92,7 +92,7 @@ const CODE_TABS: Tab[] = [
       <>{`    id: Uuid::new_v4(),`}</>,
       <>
         {"    "}tenant_id,{" "}
-        <span className="text-amber-700/80">// honors supplied tenant</span>
+        <span className="text-amber-700/80">{"// honors supplied tenant"}</span>
       </>,
       <>{`    kind: request.kind.clone(),`}</>,
       <>{`    created_at: Utc::now(),`}</>,
@@ -122,13 +122,13 @@ const CODE_TABS: Tab[] = [
         {"  "}
         <span className="text-amber-500">let</span> wallet =
         ctx.wallet_identities().await?;{"  "}
-        <span className="text-amber-700/80">// source of truth</span>
+        <span className="text-amber-700/80">{"// source of truth"}</span>
       </>,
       <>
         {"  "}
         <span className="text-amber-500">let</span> telnyx =
         ctx.telnyx_verify_profiles().await?;{"  "}
-        <span className="text-amber-700/80">// downstream mirror</span>
+        <span className="text-amber-700/80">{"// downstream mirror"}</span>
       </>,
       <>
         {"  "}
@@ -149,14 +149,14 @@ const CODE_TABS: Tab[] = [
         {"      "}
         <span className="text-amber-500">if</span> p.status != id.status{" "}
         {"{"} drift.push((id, p)); {"}"}{"  "}
-        <span className="text-amber-700/80">// flag mismatch</span>
+        <span className="text-amber-700/80">{"// flag mismatch"}</span>
       </>,
       <>{`    }`}</>,
       <>{`  }`}</>,
       <>
         {`  alert_if_drift(&drift)?;`}
         {"  "}
-        <span className="text-amber-700/80">// page on-call if non-empty</span>
+        <span className="text-amber-700/80">{"// page on-call if non-empty"}</span>
       </>,
       <>{`  Ok(Report::from(drift))`}</>,
       <>{`}`}</>,
@@ -183,18 +183,18 @@ const CODE_TABS: Tab[] = [
       <>
         {`    payload: event.serialize_redacted(),`}
         {"  "}
-        <span className="text-amber-700/80">// PII stripped pre-write</span>
+        <span className="text-amber-700/80">{"// PII stripped pre-write"}</span>
       </>,
       <>{`  };`}</>,
       <>
         {`  AUDIT_LOG.append(row);`}
         {"  "}
-        <span className="text-amber-700/80">// append-only, never mutated</span>
+        <span className="text-amber-700/80">{"// append-only, never mutated"}</span>
       </>,
       <>
         {"  "}
         <span className="text-amber-700/80">
-          // every action gets a receipt
+          {"// every action gets a receipt"}
         </span>
       </>,
       <>{`}`}</>,
@@ -490,17 +490,20 @@ export function CommandBridgeHero() {
       <header className="relative z-20 flex w-full flex-col items-center justify-center gap-5 pt-12 pb-6">
         <AnomaliMark />
         <h1
-          className="mt-2 px-4 text-center font-display text-5xl font-black uppercase tracking-[0.1em] text-[#fff5eb] sm:text-7xl lg:text-[7rem]"
+          className="mt-2 px-4 text-center font-display text-5xl font-black uppercase tracking-[0.1em] text-[#fff5eb] sm:text-7xl lg:text-[6.5rem]"
           style={{
             textShadow:
               "0 0 30px rgba(245,158,11,0.4), 0 0 60px rgba(245,158,11,0.15)",
           }}
         >
-          I Build Things.
+          Mali Franzese
         </h1>
+        <p className="px-6 text-center font-display text-xl font-bold uppercase tracking-[0.22em] text-amber-300/85 sm:text-2xl">
+          I Build Things.
+        </p>
         <p className="max-w-2xl px-6 text-center text-sm text-amber-200/60 sm:text-base">
-          Founder-Engineer at The MASS Lab · 3,000+ commits across 20+ active
-          repos in 10 months
+          Founder-Engineer at The MASS Lab · Co-Founder &amp; CTO at Beat The
+          Odds · 3,000+ commits across 20+ active repos
         </p>
         <div className="mt-1 h-px w-1/3 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
       </header>

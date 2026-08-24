@@ -39,7 +39,8 @@ export const projects: Project[] = [
     ],
     status: "building",
     category: "saas",
-    url: "https://massleadconnect.com",
+    // massleadconnect.com 301s here; link the canonical host directly.
+    url: "https://masslabconnect.com",
     metrics: "1,100+ commits",
     highlights: [
       "Multi-tenant SaaS with three separate Next.js applications",
@@ -57,7 +58,7 @@ export const projects: Project[] = [
     description:
       "Real-time fantasy sports platform with web + kiosk experiences, merchandise rewards, responsible gambling handlers, Stripe payments, and admin dashboards.",
     longDescription:
-      "Beat The Odds is a real-time fantasy sports platform featuring web and kiosk experiences. The platform includes a bettor-facing interface, admin dashboard, merchandise rewards system, and responsible gambling handlers.\n\nBuilt as a Next.js monorepo with SST v3 on AWS, the platform handles Stripe payments with deposit/withdraw flows, fail-closed authentication, stage-aware CORS, and comprehensive audit logging. I've been lead engineer on this project since 2022, owning everything from architecture to deployment.",
+      "Beat The Odds is a real-time fantasy sports platform featuring web and kiosk experiences. The platform includes a bettor-facing interface, admin dashboard, merchandise rewards system, and responsible gambling handlers.\n\nBuilt as a Next.js monorepo with SST v3 on AWS, the platform handles Stripe payments with deposit/withdraw flows, fail-closed authentication, stage-aware CORS, and comprehensive audit logging. I am Co-Founder & CTO, and have owned architecture and delivery since 2022 - everything from infrastructure to deployment.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -76,7 +77,7 @@ export const projects: Project[] = [
       "Responsible gambling handlers and compliance",
       "Stripe payments with deposit/withdraw flows",
       "Fail-closed auth with audit logging",
-      "Lead engineer since 2022 - 1,400+ commits",
+      "Co-Founder & CTO - architecture and delivery since 2022, 1,400+ commits",
     ],
   },
   {
