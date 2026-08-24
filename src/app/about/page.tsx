@@ -91,7 +91,7 @@ export default function AboutPage() {
               <p>
                 I spent a year in electrical engineering at ASU (2015-2016),
                 then pivoted to software through Hack Reactor in LA in 2018.
-                In 2019 I started my own practice - The MASS Lab - taking on
+                In 2017 I started my own practice - The MASS Lab - taking on
                 client projects and building internal products.
               </p>
               <p>

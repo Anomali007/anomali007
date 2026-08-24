@@ -201,11 +201,11 @@ test.describe("claim guards", () => {
     expect(body).not.toMatch(/Lead Full-Stack/i);
   });
 
-  test("MASS Lab is dated 2019, never 2017", async ({ page }) => {
+  test("MASS Lab is dated 2017, never 2019 (locked by Mali 2026-08-24)", async ({ page }) => {
     await page.goto("/about");
     const body = await page.locator("body").innerText();
-    expect(body).toContain("2019");
-    expect(body).not.toContain("2017");
+    expect(body).toContain("2017");
+    expect(body).not.toContain("2019");
   });
 
   test("shipped-but-unsold products state their zero out loud", async ({

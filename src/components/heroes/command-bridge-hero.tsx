@@ -221,21 +221,18 @@ const MERGES = [
   },
   {
     title: "Ball Pit merged. Arcade game number four",
-    pr: "#575",
     repo: "beat-the-odds",
     date: "2026-08-13",
     href: "/projects/bto-arcade",
   },
   {
     title: "City Crawl merged: fall physics, frustum cull, OSM districts",
-    pr: "#568",
     repo: "beat-the-odds",
     date: "2026-08-10",
     href: "/projects/bto-arcade",
   },
   {
     title: "Venue apply form fixed. It had 500'd on every submit since launch",
-    pr: "#569",
     repo: "beat-the-odds",
     date: "2026-08-09",
     href: "/projects/beat-the-odds",
@@ -282,7 +279,7 @@ const EVENT_LOG: Array<{
   },
   {
     date: "2026-08-13",
-    type: "PR #575",
+    type: "SHIPPED",
     status: "MERGED",
     target: "ball-pit",
     detail: "arcade game #4 · grants nothing",
@@ -290,7 +287,7 @@ const EVENT_LOG: Array<{
   },
   {
     date: "2026-08-10",
-    type: "PR #568",
+    type: "SHIPPED",
     status: "MERGED",
     target: "city-crawl",
     detail: "IP posture asserted by test, not comment",
@@ -298,7 +295,7 @@ const EVENT_LOG: Array<{
   },
   {
     date: "2026-08-09",
-    type: "PR #569",
+    type: "SHIPPED",
     status: "FIXED",
     target: "venue-apply",
     detail: "500 on every submit since launch",

@@ -14,7 +14,7 @@ type Waypoint = {
 const waypoints: Waypoint[] = [
   { year: "2015", city: "Tempe, AZ", label: "ASU - 1 yr, Electrical Engineering" },
   { year: "2018", city: "Los Angeles", label: "Hack Reactor - software pivot" },
-  { year: "2019", city: "-", label: "The MASS Lab founded - first clients" },
+  { year: "2017", city: "-", label: "The MASS Lab founded - first clients" },
   { year: "2021", city: "Remote", label: "Inter-Con - Python APIs on AWS" },
   { year: "2022", city: "Remote", label: "Beat The Odds - Co-Founder & CTO" },
   { year: "2026", city: "Central Texas", label: "Founder-Engineer · The MASS Lab" },
