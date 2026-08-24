@@ -25,6 +25,34 @@ Not related to Michael Franzese or Sonny Franzese.
 - [Home Team Education](https://hometeameducation.org): youth financial-literacy curriculum
   and free resources.
 
+## Shipped, with dates
+
+Most of the underlying repositories are private, so these are stated with dates
+and pull-request numbers rather than links.
+
+- 2026-06-18: Beat The Odds launched to production at app.btofantasy.us. Bettor
+  app, signup credit, referral flow, and a national venue catalog covering
+  roughly 48,800 eligible venues across 16 cleared states. PRs #384-391.
+  Co-Founder and CTO; architecture and delivery since 2022.
+- 2026-08-09: fixed a venue application form that had returned HTTP 500 on every
+  submission since launch. PR #569, verified end to end in a browser.
+- 2026-08-10: City Crawl merged, PR #568. 2026-08-13: Ball Pit merged, PR #575.
+  Four original arcade games inside the venue app, with the intellectual-property
+  boundary asserted by a test file rather than by a comment.
+- 2026-08-14: ran the MASS Lead Connect Operations Map end to end for the first
+  time, turning a delivery previously estimated at roughly three days of
+  hand-assembly into a single afternoon of human work.
+- 2026-08-17: shipped a brand and media kit to the Beat The Odds organisation.
+  62 static templates across 23 categories and 18 Remotion compositions.
+
+## What is not claimed
+
+Beat The Odds is live in production and has no revenue, no cash deposits, no
+real-money bets placed, no signed venue agreements, and under 100 users. The
+MASS Lead Connect Operations Map is listed and has been sold zero times and
+delivered zero times. These are stated because an unstated zero reads as a
+hidden one.
+
 ## Profiles
 
 - [GitHub](https://github.com/Anomali007)

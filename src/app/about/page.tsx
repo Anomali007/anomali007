@@ -125,6 +125,43 @@ export default function AboutPage() {
 
         <Section>
           <SectionHeader
+            kicker="EVIDENCE"
+            title="Why You Can't See Most of This"
+            subtitle="The honest version of the portfolio problem."
+          />
+          <Panel kicker="DISCLOSURE">
+            <div className="max-w-3xl space-y-4 text-sm leading-relaxed text-amber-200/75 sm:text-base">
+              <p>
+                Almost everything I have built in the last two years lives in
+                private repositories. My public GitHub shows a handful of
+                repos and a contribution graph; it does not show the
+                platforms. That is a real problem for you, not just for me -
+                it means most of what I claim here is not something you can
+                click through and check.
+              </p>
+              <p>
+                So I do two things instead. Every project page carries dated
+                receipts: what changed, which pull request, and how it was
+                verified. They are specific enough to be wrong if I had
+                invented them, and specific enough for you to interrogate in
+                an interview. And every project page carries a{" "}
+                <span className="text-amber-300">
+                  What this does not claim
+                </span>{" "}
+                block, because several of these are shipped systems with no
+                users and no revenue, and saying so is the only way the rest
+                of the page is worth anything.
+              </p>
+              <p>
+                If you want the code rather than the account of it, ask. I can
+                walk a repository with you.
+              </p>
+            </div>
+          </Panel>
+        </Section>
+
+        <Section>
+          <SectionHeader
             kicker="IDENTITY"
             title="The Name"
             subtitle="Who I am, and who I am not."

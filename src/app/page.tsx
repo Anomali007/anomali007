@@ -24,7 +24,18 @@ const CURRENTLY = [
     line: (
       <>
         Building <span className="text-amber-200">MASS Lead Connect</span> -
-        multi-tenant AI voice receptionist SaaS
+        AI voice receptionist SaaS, and the Operations Map engagement on top
+        of it
+      </>
+    ),
+  },
+  {
+    emoji: "🎰",
+    line: (
+      <>
+        Running architecture and delivery at{" "}
+        <span className="text-amber-200">Beat The Odds</span> - live in
+        production since June
       </>
     ),
   },
