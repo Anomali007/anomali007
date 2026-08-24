@@ -8,48 +8,50 @@ import { CheckCircle2 } from "lucide-react";
  * Command-Bridge Hero - Severance-style three-monitor desk view.
  *
  * Mirrors the public portfolio:
- *   LEFT   - Currently shipping (4 portfolio projects, links to /projects/<slug>)
- *   CENTER - Active code (3 tabs - clickable - public-safe snippets)
- *   RIGHT  - Recent merges (clickable, links into the portfolio + GitHub)
- *   FOOTER - Auto-rotating live event log + clock
+ *   LEFT   - In production (4 portfolio projects, links to /projects/<slug>)
+ *   CENTER - Representative code (3 tabs - clickable - public-safe snippets)
+ *   RIGHT  - Ship log (clickable, links into the portfolio + GitHub)
+ *   FOOTER - Auto-rotating ship log, dated
+ *
+ * EVERYTHING WITH A NUMBER ON IT IS REAL AND SOURCED. This panel used to render
+ * invented version strings, invented test counts, invented completion
+ * percentages, invented PR numbers, invented commit hashes and "10m ago"
+ * timestamps under a live clock, on a site whose entire job is to make private
+ * work checkable. If you add a row here it needs a date and it needs to have
+ * happened. Illustrative telemetry is worse than no telemetry.
  */
 
 type Shipping = {
   slug: string;
   name: string;
-  version: string;
-  tests: string;
-  progress: number;
+  state: string;
+  detail: string;
 };
 
 const SHIPPING: Shipping[] = [
   {
-    slug: "mass-lead-connect",
-    name: "MASS Lead Connect",
-    version: "v1.14.0-alpha",
-    tests: "312/338",
-    progress: 92,
+    slug: "beat-the-odds",
+    name: "Beat The Odds",
+    state: "IN PRODUCTION",
+    detail: "Live since Jun 2026 · no revenue yet",
   },
   {
-    slug: "knowmessenger",
-    name: "KnowMessenger",
-    version: "v0.7.2",
-    tests: "198/244",
-    progress: 81,
+    slug: "mass-lead-connect",
+    name: "MASS Lead Connect",
+    state: "LISTED",
+    detail: "Operations Map offered · zero delivered",
+  },
+  {
+    slug: "bto-arcade",
+    name: "BTO Arcade",
+    state: "MERGED",
+    detail: "4 games · IP boundary held by test",
   },
   {
     slug: "token-holder",
     name: "Token Holder",
-    version: "v0.5.1",
-    tests: "215/215",
-    progress: 88,
-  },
-  {
-    slug: "beat-the-odds",
-    name: "Beat The Odds",
-    version: "v2.2.0",
-    tests: "267/282",
-    progress: 95,
+    state: "BUILDING",
+    detail: "Rust core · desktop + hosted",
   },
 ];
 
@@ -204,95 +206,110 @@ const CODE_TABS: Tab[] = [
 
 const MERGES = [
   {
-    title: "feat(token-holder): per-tenant reconciliation Lambda",
-    pr: "#42",
-    repo: "token-holder",
-    time: "10m ago",
-    hash: "a1f4c3e",
-    href: "/projects/token-holder",
-  },
-  {
-    title: "feat(knowmessenger): paired md+html dashboard widgets",
-    pr: "#53",
-    repo: "knowmessenger",
-    time: "42m ago",
-    hash: "ad56ddb",
-    href: "/projects/knowmessenger",
-  },
-  {
-    title: "fix(mlc): prorate proration on mid-cycle plan swap",
-    pr: "#318",
-    repo: "mass-lead-connect",
-    time: "1h ago",
-    hash: "3c9e8f1",
+    title: "First Operations Map offer sent to a prospect",
+    pr: "MASS Lead Connect",
+    repo: "73 days ready-but-unsent",
+    date: "2026-08-24",
     href: "/projects/mass-lead-connect",
   },
   {
-    title: "test(bto): chaos-latency suite for the wager engine",
-    pr: "#608",
+    title: "Media kit shipped to the org: 62 templates, 18 compositions",
+    pr: "62 + 18",
+    repo: "bto-media-kit",
+    date: "2026-08-17",
+    href: "/projects/bto-media-kit",
+  },
+  {
+    title: "Ball Pit merged. Arcade game number four",
+    pr: "#575",
     repo: "beat-the-odds",
-    time: "2h ago",
-    hash: "7e2b1d4",
+    date: "2026-08-13",
+    href: "/projects/bto-arcade",
+  },
+  {
+    title: "City Crawl merged: fall physics, frustum cull, OSM districts",
+    pr: "#568",
+    repo: "beat-the-odds",
+    date: "2026-08-10",
+    href: "/projects/bto-arcade",
+  },
+  {
+    title: "Venue apply form fixed. It had 500'd on every submit since launch",
+    pr: "#569",
+    repo: "beat-the-odds",
+    date: "2026-08-09",
     href: "/projects/beat-the-odds",
   },
   {
-    title: "feat(blah3): floating dictation overlay + hotkey",
-    pr: "#11",
-    repo: "blah3",
-    time: "3h ago",
-    hash: "5f6a9c0",
-    href: "https://github.com/Anomali007/blah3",
+    title: "Operations Map ran end to end: ~3 days of assembly to one afternoon",
+    pr: "dry run",
+    repo: "mass-lead-connect",
+    date: "2026-08-14",
+    href: "/projects/mass-lead-connect",
   },
   {
-    title: "docs(token-holder): hosted cloud quickstart",
-    pr: "#48",
-    repo: "token-holder",
-    time: "5h ago",
-    hash: "d2a7b91",
-    href: "/projects/token-holder",
+    title: "Beat The Odds launched to production",
+    pr: "#384-391",
+    repo: "beat-the-odds",
+    date: "2026-06-18",
+    href: "/projects/beat-the-odds",
   },
 ];
 
 const EVENT_LOG: Array<{
+  date: string;
   type: string;
-  status: "MERGED" | "SUCCEEDED" | "INVOKED" | "DEPLOYED" | "PASSED";
+  status: "MERGED" | "SHIPPED" | "LAUNCHED" | "SENT" | "FIXED";
   target: string;
   detail: string;
   statusColor: string;
 }> = [
   {
-    type: "PR #42",
-    status: "MERGED",
-    target: "token-holder",
-    detail: "reconcile-verify-profiles Lambda",
+    date: "2026-08-24",
+    type: "OFFER",
+    status: "SENT",
+    target: "operations-map",
+    detail: "first prospect · zero delivered to date",
     statusColor: "text-cyan-400",
   },
   {
-    type: "DEPLOY",
-    status: "SUCCEEDED",
-    target: "yachttransport.ai",
-    detail: "to production [1.2s]",
-    statusColor: "text-cyan-400",
-  },
-  {
-    type: "AGENT",
-    status: "INVOKED",
-    target: "security-review",
-    detail: "job_id=8f3a7c1e",
+    date: "2026-08-17",
+    type: "MEDIA KIT",
+    status: "SHIPPED",
+    target: "bto-media-kit",
+    detail: "62 templates · 57/57 rendered, 0 failed",
     statusColor: "text-emerald-400",
   },
   {
-    type: "TH QA",
-    status: "DEPLOYED",
-    target: "cloud.tokenholder.io",
-    detail: "29m · 5/5 smoke pass",
+    date: "2026-08-13",
+    type: "PR #575",
+    status: "MERGED",
+    target: "ball-pit",
+    detail: "arcade game #4 · grants nothing",
     statusColor: "text-cyan-400",
   },
   {
-    type: "SMOKE",
-    status: "PASSED",
-    target: "km-d2:dev",
-    detail: "5/5 checks · bearer refreshed",
+    date: "2026-08-10",
+    type: "PR #568",
+    status: "MERGED",
+    target: "city-crawl",
+    detail: "IP posture asserted by test, not comment",
+    statusColor: "text-cyan-400",
+  },
+  {
+    date: "2026-08-09",
+    type: "PR #569",
+    status: "FIXED",
+    target: "venue-apply",
+    detail: "500 on every submit since launch",
+    statusColor: "text-emerald-400",
+  },
+  {
+    date: "2026-06-18",
+    type: "PROD",
+    status: "LAUNCHED",
+    target: "app.btofantasy.us",
+    detail: "PRs #384-391 · ~48,800 venues catalogued",
     statusColor: "text-emerald-400",
   },
 ];
@@ -369,25 +386,6 @@ function AnomaliMark() {
         </svg>
       </div>
       <span>0 0 7</span>
-    </div>
-  );
-}
-
-function BlockProgress({ percentage }: { percentage: number }) {
-  const total = 20;
-  const filled = Math.floor((percentage / 100) * total);
-  return (
-    <div className="flex gap-[2px]">
-      {Array.from({ length: total }).map((_, i) => (
-        <div
-          key={i}
-          className={`h-2.5 w-1.5 transition-colors ${
-            i < filled
-              ? "bg-amber-500 shadow-[0_0_5px_rgba(245,158,11,0.55)]"
-              : "border border-amber-900/30 bg-amber-950/40"
-          }`}
-        />
-      ))}
     </div>
   );
 }
@@ -515,7 +513,7 @@ export function CommandBridgeHero() {
         >
           {/* LEFT - Currently shipping (clickable) */}
           <Panel
-            title="CURRENTLY SHIPPING"
+            title="IN PRODUCTION"
             className="h-[460px] transform-gpu transition-transform duration-700 hover:[transform:rotateY(0deg)_translateZ(0)] lg:h-[580px]"
             style={{ transform: "rotateY(12deg) translateZ(-50px)" }}
           >
@@ -530,15 +528,12 @@ export function CommandBridgeHero() {
                     <span className="truncate text-amber-100/90 transition-colors group-hover:text-amber-200">
                       {item.name}
                     </span>
-                    <span className="ml-2 shrink-0">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
+                    <span className="ml-2 shrink-0 font-mono text-[9px] tracking-[0.2em] text-amber-400/90">
+                      {item.state}
                     </span>
                   </div>
-                  <BlockProgress percentage={item.progress} />
-                  <div className="mt-1 flex items-center justify-between text-[10px] text-amber-600">
-                    <span>{item.version}</span>
-                    <span>{item.progress}%</span>
-                    <span>{item.tests} tests</span>
+                  <div className="text-[11px] leading-snug text-amber-600">
+                    {item.detail}
                   </div>
                 </Link>
               ))}
@@ -598,9 +593,9 @@ export function CommandBridgeHero() {
               <div className="mt-4 flex items-center justify-between border-t border-amber-500/20 pt-2 text-[10px] text-amber-600">
                 <span className="flex items-center gap-2">
                   <CheckCircle2 size={12} className="text-emerald-400" />{" "}
-                  rust-analyzer: ok
+                  representative, not live
                 </span>
-                <span>215/215 lib tests</span>
+                <span>public-safe excerpt</span>
                 <span>UTF-8</span>
               </div>
             </div>
@@ -608,7 +603,7 @@ export function CommandBridgeHero() {
 
           {/* RIGHT - Recent merges (clickable) */}
           <Panel
-            title="RECENT MERGES"
+            title="SHIP LOG"
             className="h-[460px] transform-gpu transition-transform duration-700 hover:[transform:rotateY(0deg)_translateZ(0)] lg:h-[580px]"
             style={{ transform: "rotateY(-12deg) translateZ(-50px)" }}
           >
@@ -627,12 +622,12 @@ export function CommandBridgeHero() {
                       <span className="text-amber-500/70">
                         {log.pr} · {log.repo}
                       </span>
-                      <span className="flex items-center gap-3">
-                        <span>{log.time}</span>
-                        <span className="font-mono text-amber-700">
-                          {log.hash}
-                        </span>
-                      </span>
+                      <time
+                        dateTime={log.date}
+                        className="font-mono text-amber-600"
+                      >
+                        {log.date}
+                      </time>
                     </div>
                   </>
                 );
@@ -660,8 +655,8 @@ export function CommandBridgeHero() {
       <footer className="relative z-30 w-full border-t border-amber-500/20 bg-[#030303] p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.8)]">
         <div className="mx-auto flex max-w-[1600px] flex-col items-start justify-between gap-4 font-mono text-xs md:flex-row md:items-center">
           <div className="flex items-start gap-6 sm:gap-8">
-            <div className="hidden font-bold tracking-widest text-amber-700 md:block">
-              LIVE EVENT LOG
+            <div className="hidden font-bold tracking-widest text-amber-600 md:block">
+              SHIP LOG
             </div>
             <div className="flex flex-col gap-1 text-amber-500/65">
               {visibleEvents.map((e, i) => (
@@ -670,8 +665,10 @@ export function CommandBridgeHero() {
                   className="event-row flex gap-4 sm:gap-8"
                   style={{ opacity: 1 - i * 0.25 }}
                 >
-                  <span>{time}</span>
-                  <span className="w-16 shrink-0 text-amber-700">{e.type}</span>
+                  <time dateTime={e.date} className="w-24 shrink-0">
+                    {e.date}
+                  </time>
+                  <span className="w-24 shrink-0 text-amber-600">{e.type}</span>
                   <span className={`w-20 shrink-0 font-bold ${e.statusColor}`}>
                     {e.status}
                   </span>
@@ -687,13 +684,15 @@ export function CommandBridgeHero() {
           <div className="flex shrink-0 items-center gap-6 text-amber-600">
             <div className="hidden flex-col text-right sm:flex">
               <span>DAEDALUS WORKSHOP</span>
-              <span className="text-amber-500/40">SYSTEM ONLINE</span>
+              <span className="text-amber-500/40">{time}</span>
             </div>
             <div className="hidden h-8 w-px bg-amber-500/20 sm:block" />
-            <div className="flex items-center gap-3">
-              <span className="text-amber-400">[ STREAMING ]</span>
-              <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" />
-            </div>
+            <Link
+              href="/projects"
+              className="text-amber-400 transition-colors hover:text-amber-300"
+            >
+              [ ALL PROJECTS ]
+            </Link>
           </div>
         </div>
       </footer>

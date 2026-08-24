@@ -168,6 +168,59 @@ export default async function ProjectDetailPage({
             </div>
           )}
 
+          {/* Evidence - dated, specific, checkable */}
+          {project.evidence && project.evidence.length > 0 && (
+            <div className="mb-10">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="alien-dots" aria-hidden>
+                  <span />
+                  <span />
+                  <span />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-500/85">
+                  RECEIPTS
+                </span>
+                <span className="h-px flex-1 bg-gradient-to-r from-amber-500/40 via-amber-500/15 to-transparent" />
+              </div>
+              <p className="mb-5 max-w-3xl text-sm text-amber-200/60">
+                Most of this work lives in private repositories, so you cannot
+                click through to the commit. These are dated and specific enough
+                to ask me about instead.
+              </p>
+              <ol className="max-w-3xl space-y-4 border-l border-amber-500/20 pl-5">
+                {project.evidence.map((e, i) => (
+                  <li key={i} className="relative">
+                    <span
+                      aria-hidden
+                      className="absolute -left-[23px] top-1.5 h-1.5 w-1.5 rounded-full bg-amber-500/70"
+                    />
+                    <time
+                      dateTime={e.date}
+                      className="block font-mono text-[10px] uppercase tracking-[0.25em] text-amber-500/85"
+                    >
+                      {e.date}
+                    </time>
+                    <p className="mt-1 text-sm leading-relaxed text-amber-200/75">
+                      {e.fact}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
+          {/* What this does not claim */}
+          {project.limits && (
+            <div className="mb-10 max-w-3xl border border-amber-500/25 bg-amber-500/[0.03] p-5">
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-amber-500/85">
+                What this does not claim
+              </p>
+              <p className="text-sm leading-relaxed text-amber-200/75">
+                {project.limits}
+              </p>
+            </div>
+          )}
+
           {/* Embed */}
           {project.embed && (
             <div className="mb-10">

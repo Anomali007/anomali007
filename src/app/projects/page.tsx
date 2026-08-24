@@ -15,6 +15,7 @@ const categories = [
   { key: "saas", label: "SaaS Platforms" },
   { key: "tools", label: "Developer Tools" },
   { key: "client", label: "Client Work" },
+  { key: "game", label: "Games" },
   { key: "opensource", label: "Open Source" },
 ] as const;
 

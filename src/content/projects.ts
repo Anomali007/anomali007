@@ -7,10 +7,24 @@ export type Project = {
   highlights: string[];
   techStack: string[];
   status: "live" | "beta" | "completed" | "building";
-  category: "saas" | "tools" | "client" | "opensource";
+  category: "saas" | "tools" | "client" | "opensource" | "game";
   url?: string;
   repoUrl?: string;
   metrics?: string;
+  /**
+   * Dated, specific things that actually happened. Most of the work behind this
+   * portfolio lives in private repositories, so a reader cannot click through to
+   * a commit. A dated line naming the change, the PR and how it was verified is
+   * the next best thing: it is concrete enough to ask about in an interview and
+   * specific enough to be wrong if it were invented.
+   */
+  evidence?: { date: string; fact: string }[];
+  /**
+   * The honest ceiling on the claim. Several of these products have shipped to
+   * production and have no users and no revenue. Saying so here is deliberate -
+   * an unstated zero reads as a hidden one.
+   */
+  limits?: string;
   embed?: {
     type: "iframe" | "image";
     src: string;
@@ -25,7 +39,7 @@ export const projects: Project[] = [
     description:
       "Multi-tenant AI voice receptionist SaaS. Three Next.js apps, SST v3 on AWS, DynamoDB, Cognito, Telnyx voice, Stripe billing, WebRTC browser calling, and an autonomous agent runtime with human-in-the-loop approvals.",
     longDescription:
-      "MASS Lead Connect is the flagship product of The MASS Lab - a multi-tenant AI voice receptionist platform that handles inbound calls, qualifies leads, and routes appointments for service businesses.\n\nThe platform consists of three Next.js applications: a marketing site, a customer dashboard for business owners to manage their AI receptionist, and a staff portal for internal operations. The backend runs on SST v3 with DynamoDB, Cognito authentication, Telnyx voice integration, Stripe billing, and WebRTC for browser-based calling.\n\nThe most technically interesting piece is the autonomous agent runtime - an AI system that can take actions on behalf of the business (scheduling, follow-ups, qualification) with human-in-the-loop approval gates to prevent unwanted automation.",
+      "MASS Lead Connect is the flagship product of The MASS Lab - a multi-tenant AI voice receptionist platform that handles inbound calls, qualifies leads, and routes appointments for service businesses.\n\nThe platform consists of three Next.js applications: a marketing site, a customer dashboard for business owners to manage their AI receptionist, and a staff portal for internal operations. The backend runs on SST v3 with DynamoDB, Cognito authentication, Telnyx voice integration, Stripe billing, and WebRTC for browser-based calling. The interview layer runs on Bedrock, Polly and Amazon Transcribe streaming, with PCM captured in an AudioWorklet and framed over a WebSocket inside API Gateway's 32 KB frame ceiling.\n\nOn top of the platform sits the Operations Map, a fixed-scope engagement. Staff interviews go in; what comes back is a process map of how the business actually runs, a double-entry time total, an assumption-versus-reality table, a bus-factor read, and a ranked action list that puts the free fixes first and software last. An assembly engine does the structural half - transcript extraction, merging several people's accounts into one business, gap detection, and a Mermaid emitter - and a human writes the causal finding, because the engine cannot assert causality and says so on every render.\n\nThe most technically interesting piece is the autonomous agent runtime - an AI system that can take actions on behalf of the business (scheduling, follow-ups, qualification) with human-in-the-loop approval gates to prevent unwanted automation.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -48,8 +62,24 @@ export const projects: Project[] = [
       "WebRTC browser calling integration",
       "Stripe billing with subscription management",
       "SST v3 infrastructure on AWS with DynamoDB and Cognito",
+      "Operations Map assembly engine: extract, merge, gap-detect, emit",
       "1,100+ commits and counting",
     ],
+    evidence: [
+      {
+        date: "2026-08-14",
+        fact: "Ran the Operations Map end to end for the first time. The full chain - transcript extraction, dossier merge, gap detection, assembly, Mermaid process map and a PHI leak check - executed start to finish and turned a delivery previously estimated at roughly three days of hand-assembly into a single afternoon of human work.",
+      },
+      {
+        date: "2026-08-14",
+        fact: "The assembly CLI reports, per field, how much of the client's own material actually crossed into the deliverable. A run that carries none of their numbers says so, out loud, instead of rendering a confident-looking empty report.",
+      },
+      {
+        date: "2026-08-17",
+        fact: "Adding a PDF to the deliverable silently blinded the privacy check - the grep probes passed over a format they could not read. Rebuilt to extract PDF text and to exit non-zero rather than print PASS over a file it cannot parse. 140 checks: 112 negative probes and 28 positive controls, so the instrument is proven able to both pass and fail.",
+      },
+    ],
+    limits: "The Operations Map is listed on the MASS Lab Connect site. It has been sold zero times and delivered zero times. The dry run above was run against a fictional practice, not a real client, and the dollar figures it produced are not a customer outcome.",
   },
   {
     slug: "beat-the-odds",
@@ -58,7 +88,7 @@ export const projects: Project[] = [
     description:
       "Real-time fantasy sports platform with web + kiosk experiences, merchandise rewards, responsible gambling handlers, Stripe payments, and admin dashboards.",
     longDescription:
-      "Beat The Odds is a real-time fantasy sports platform featuring web and kiosk experiences. The platform includes a bettor-facing interface, admin dashboard, merchandise rewards system, and responsible gambling handlers.\n\nBuilt as a Next.js monorepo with SST v3 on AWS, the platform handles Stripe payments with deposit/withdraw flows, fail-closed authentication, stage-aware CORS, and comprehensive audit logging. I am Co-Founder & CTO, and have owned architecture and delivery since 2022 - everything from infrastructure to deployment.",
+      "Beat The Odds is a real-money fantasy sports platform with a consumer app and B2B kiosk distribution into bars, restaurants and lounges. Venues earn a revenue share and carry no hardware or setup cost. The system includes a bettor-facing app, an admin dashboard, a merchandise rewards system, responsible-gaming controls, and a scout app that manages the venue pipeline from first contact through letter of intent.\n\nAs of March 2026 it is roughly 352,000 lines of TypeScript: 329 Lambda handlers, 87 DynamoDB tables, 11 client applications and 8 shared packages across 7 AWS accounts. React Native and Expo on mobile, Next.js on web, SST v3 on AWS underneath, with AppSync, Aurora, ElastiCache, EventBridge and Cognito, and 12 CloudWatch alarms plus 3 canaries watching it.\n\nI am Co-Founder & CTO and have owned architecture and delivery since 2022 - everything from infrastructure to deployment, and effectively all of the code.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -79,6 +109,25 @@ export const projects: Project[] = [
       "Fail-closed auth with audit logging",
       "Co-Founder & CTO - architecture and delivery since 2022, 1,400+ commits",
     ],
+    evidence: [
+      {
+        date: "2026-06-18",
+        fact: "Technical launch to production: bettor app, signup credit, working referral flow, World Cup soccer markets, and a national venue catalog covering roughly 48,800 eligible venues across 16 cleared states. PRs #384-391. Marketed public launch followed on 2026-06-19 at app.btofantasy.us.",
+      },
+      {
+        date: "2026-06-12",
+        fact: "Unified the market-id format across the betting stack into one pure module that owns encode, parse and split. It closed a settlement blocker - placed bets were not settling at all before it. 52 tests, PR #364.",
+      },
+      {
+        date: "2026-06-12",
+        fact: "The odds vendor has no per-game player box-score endpoint, verified against its own 20-endpoint catalog. Rather than guess a grade, player props settle to void and the stake is returned. A refund is recoverable; a mispay is not.",
+      },
+      {
+        date: "2026-08-09",
+        fact: "The venue application form had returned HTTP 500 on every submission since launch. Two defects on the happy path - a raw phone value where Cognito requires E.164, emitted in that exact shape by the page's own formatter, and a Cognito group that existed in no stage. The tests were green because the mock ignored its arguments. Fixed, deployed and verified end to end in a real browser. PR #569.",
+      },
+    ],
+    limits: "Production is live and anyone can sign up. Past that, the honest floor: no revenue, no cash deposits, no real-money bets placed, no signed venue agreements, under 100 users, and paper balances only. The odds feed is paused until January 2027.",
   },
   {
     slug: "yachttransport-ai",
@@ -295,6 +344,21 @@ export const projects: Project[] = [
     status: "building",
     category: "tools",
     metrics: "Phase 5 shipped",
+    evidence: [
+      {
+        date: "2026-07-11",
+        fact: "Built the observation layer the orchestrator existed for: editor hooks and a filesystem watcher feed a local service, which writes every file an agent touches into a hash-chained, Ed25519-signed ledger. Metadata only - session, path, working directory, never file contents. 44 tests including a forged-diff detection case.",
+      },
+      {
+        date: "2026-07-19",
+        fact: "Put shared-secret auth in front of the ingest endpoint and proved it enforcing rather than assuming it: 401 without the header, 200 with, token stored 0600.",
+      },
+      {
+        date: "2026-08-13",
+        fact: "Found the capture had been silently dead for twenty days. The ingest moved behind a token check, the wallet holding that token was locked, the service returned 502, and the hook discarded the error because it ended in `|| true`. The real finding underneath: locking the wallet deletes consumer tokens, so every lock silently killed capture. A hook that cannot fail out loud is not instrumentation.",
+      },
+    ],
+    limits: "Personal tooling, not a product. It has one user. The file-activity capture described above went dark for twenty days in 2026 and its behaviour should be treated as architecture rather than as something running healthily today.",
     highlights: [
       "Grouped Claude Code sessions with eject-to-floating + dock-back",
       "MCP bridge lets one Claude session coordinate with others",
@@ -329,6 +393,87 @@ export const projects: Project[] = [
       "Embedded coaching bubbles and scheduled vault reviews",
       "Federation-backed tenant onboarding via Token Holder",
       "BYO-key freemium for Claude API; hosted option for managed users",
+    ],
+  },
+  {
+    slug: "bto-arcade",
+    title: "BTO Arcade",
+    emoji: "\u{1F573}\uFE0F",
+    description:
+      "Four original arcade games built into the Beat The Odds venue app. Deterministic framework-free engines in a shared package, canvas renderers in the apps, and an intellectual-property boundary asserted by tests rather than by comments.",
+    longDescription:
+      "The venue app needed something to do between games. Rather than license, I built four: Clutch Trivia, World Cup Shootout, City Crawl and Ball Pit.\n\nCity Crawl is the largest. You steer a void around a procedurally generated isometric city, swallow anything that fits, grow, and take the landmark - three modes, six cities, and a 138-slot challenge album. The engine is pure and deterministic and lives in a shared package with no framework dependency; the renderer is canvas 2D, chosen over WebGL after measuring a real 90-second run rather than assuming. A frustum cull replaced a radial one and holds 10.3% of props against the old 93.5%, verified against a brute-force reference rasteriser rather than against itself.\n\nBall Pit drops regulation sports balls into a container and merges matching pairs up a size ladder. The twist is that each ball behaves like its real self - a ping pong ball pings, a shot put thuds and shoves the pile.\n\nThe part I care most about is the boundary. In a wagering app, team colours and league marks are false-endorsement exposure, while buildings visible from public places are broadly permitted under 17 U.S.C. section 120(a). So the games ship cities and geometry and never teams or marks, city footprints come from OpenStreetMap and never from a source whose terms bar derivative datasets, and a test file enforces all of it - including reading the brand token file directly so the canonical colours cannot drift. If that test fails it is a decision for counsel, not a decision for me.",
+    techStack: [
+      "TypeScript",
+      "Canvas 2D",
+      "React",
+      "React Native",
+      "Skia",
+      "OpenStreetMap",
+    ],
+    status: "completed",
+    category: "game",
+    evidence: [
+      {
+        date: "2026-08-10",
+        fact: "City Crawl merged to develop, PR #568 - fall physics, the frustum cull and the OpenStreetMap district extractor as three logical commits.",
+      },
+      {
+        date: "2026-08-13",
+        fact: "Ball Pit merged, PR #575. Arcade game number four.",
+      },
+      {
+        date: "2026-08-08",
+        fact: "The OpenStreetMap district extractor pulls real building footprints - 1,526 buildings for downtown Minneapolis at about 12 bytes per building gzipped, and Denver extracted cold on the first run. The licence attribution rides inside the data payload rather than in a source comment, so it survives being copied out.",
+      },
+      {
+        date: "2026-08-10",
+        fact: "Every game grants nothing. No session, no server submit, and none of the earning vocabulary anywhere in the tree - the games cannot pay out by construction, not by configuration.",
+      },
+    ],
+    limits: "Shipped to the develop branch inside the Beat The Odds app, not published as standalone games. The real-city path is built and merged but not yet mounted in the app, so the cities you can play are the procedural ones. Mobile frame rate on physical hardware is unmeasured.",
+    highlights: [
+      "Deterministic, framework-free game engines in a shared package",
+      "Canvas 2D over WebGL, decided by measuring a real 90-second run",
+      "Frustum cull verified against a brute-force reference rasteriser",
+      "IP boundary asserted by a test file, not by a code comment",
+      "Real building footprints from OpenStreetMap, licence-safe by payload",
+      "Grants nothing: no session, no submit, no earning path",
+    ],
+  },
+  {
+    slug: "bto-media-kit",
+    title: "BTO Media Kit",
+    emoji: "\u{1F3AC}",
+    description:
+      "Brand and content system for Beat The Odds, packaged so the team can produce on-brand material without going through me. 62 static templates and 18 Remotion compositions, with the claim rules enforced in the components.",
+    longDescription:
+      "The bottleneck was me. Every social post, every deck slide, every clip went through one person, so the kit exists to remove that dependency rather than to make design faster.\n\nEvery static template is a standalone HTML file - no build step, no framework - sized by its own filename, with an exporter that reads the size off the name and renders through headless Chrome. 62 of them across 23 categories. The explorer that indexes them fails the build if the number of templates it discovers ever diverges from the number of frames it renders, so the catalogue cannot quietly go stale.\n\nThe motion half is 18 Remotion compositions: 11 vertical designs plus 16:9 and 1:1 variants. There is no photography anywhere in the kit - no player likeness with an unanswered rights question, no venue shoot, no stock budget - so type, colour, geometry and timing have to carry the frame instead. Every composition is driven by typed props behind a schema, which is what lets someone else edit the copy without touching layout code.\n\nTwo rules are built into the components rather than written in a style guide. The company is pre-revenue, so the stat card's default figure is a placeholder and renders an on-canvas marker saying so - you have to consciously replace it with a real number. And no league marks, team names, team colours or competitor names, for the same reason the arcade games avoid them.",
+    techStack: ["Remotion", "TypeScript", "Zod", "HTML", "Headless Chrome"],
+    status: "completed",
+    category: "tools",
+    evidence: [
+      {
+        date: "2026-08-17",
+        fact: "Shipped to the organisation: 62 templates across 23 categories and 18 Remotion compositions. Full export run rendered 57 of 57 with zero failures and zero skips, and 186 references were checked live with none broken.",
+      },
+      {
+        date: "2026-08-17",
+        fact: "The explorer indexes 62 templates and embeds 62 frames, and its generator exits non-zero if those two numbers ever differ. A catalogue that can silently under-report is not a catalogue.",
+      },
+      {
+        date: "2026-08-19",
+        fact: "Handed over as a versioned bundle - logos, icons, brand rules, static templates, motion templates, worked examples and a first-ten-business-days plan - with a checksum manifest and a print-ready brand guide carrying Pantone and CMYK specifications.",
+      },
+    ],
+    limits: "Internal team tooling for one company. The whole kit is under a megabyte because it is templates and brand primitives only, not the 1.2 GB render library it came from.",
+    highlights: [
+      "62 standalone HTML templates, no build step, no framework",
+      "18 Remotion compositions: 11 vertical designs plus 16:9 and 1:1",
+      "Typed props behind a schema, so copy is editable without touching layout",
+      "Pre-revenue claim rule enforced in the component, not in a style guide",
+      "Catalogue generator exits non-zero if discovery and render counts diverge",
+      "Versioned handoff bundle with a checksum manifest and a print brand guide",
     ],
   },
   {
