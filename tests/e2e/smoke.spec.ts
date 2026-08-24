@@ -57,7 +57,14 @@ test.describe("inner pages render with their themed hero (CSS-styled)", () => {
     );
     // Wire hero panel chrome
     await expect(page.getByText("LIVE WIRE")).toBeVisible();
-    await expect(page.getByText(/WIRE · v2026/)).toBeVisible();
+    // The version stamp is `hidden sm:block`, so it is desktop-only by design.
+    // Asserting it unconditionally failed on the mobile-safari project - a test
+    // bug that had never surfaced because the runner's port was misconfigured
+    // and the suite was not actually executing.
+    const wide = (page.viewportSize()?.width ?? 0) >= 640;
+    await expect(page.getByText(/WIRE · v2026/)).toBeVisible({
+      visible: wide,
+    });
   });
 });
 

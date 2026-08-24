@@ -86,18 +86,19 @@ export const projects: Project[] = [
     title: "Beat The Odds",
     emoji: "\u{1F3B0}",
     description:
-      "Real-time fantasy sports platform with web + kiosk experiences, merchandise rewards, responsible gambling handlers, Stripe payments, and admin dashboards.",
+      "Real-money fantasy sports platform, live in production since June 2026. Consumer app plus B2B kiosk distribution into venues, with merchandise rewards, responsible-gaming controls, Stripe payments and admin dashboards.",
     longDescription:
       "Beat The Odds is a real-money fantasy sports platform with a consumer app and B2B kiosk distribution into bars, restaurants and lounges. Venues earn a revenue share and carry no hardware or setup cost. The system includes a bettor-facing app, an admin dashboard, a merchandise rewards system, responsible-gaming controls, and a scout app that manages the venue pipeline from first contact through letter of intent.\n\nAs of March 2026 it is roughly 352,000 lines of TypeScript: 329 Lambda handlers, 87 DynamoDB tables, 11 client applications and 8 shared packages across 7 AWS accounts. React Native and Expo on mobile, Next.js on web, SST v3 on AWS underneath, with AppSync, Aurora, ElastiCache, EventBridge and Cognito, and 12 CloudWatch alarms plus 3 canaries watching it.\n\nI am Co-Founder & CTO and have owned architecture and delivery since 2022 - everything from infrastructure to deployment, and effectively all of the code.",
     techStack: [
       "Next.js",
+      "React Native",
       "TypeScript",
       "SST v3",
       "AWS",
+      "DynamoDB",
       "Stripe",
-      "PostgreSQL",
     ],
-    status: "building",
+    status: "live",
     category: "saas",
     url: "https://btofantasy.us",
     metrics: "1,400+ commits",
