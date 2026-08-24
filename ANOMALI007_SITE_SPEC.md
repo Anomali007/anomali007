@@ -139,7 +139,8 @@ anomali007/
   - Project name + emoji
   - Description (2-3 sentences)
   - Tech stack as small badges
-  - Outcome/metric if applicable (e.g., "reduced call handling ~50%")
+  - Outcome/metric ONLY if it is currently true and sourced. Never publish a client-reported
+    figure you cannot substantiate; write the claim without the number instead.
   - Link to live site or repo (if public)
   - Status indicator: "Live", "Private Beta", "In Development", "Completed"
 
@@ -215,7 +216,8 @@ type Project = {
 12. **AI Voice Receptionist** (🦷) - client, completed
     - "Vapi + LLM orchestration for a service business. Handles inbound calls, qualifies leads, routes appointments."
     - Tech: Vapi, LLM orchestration, webhooks
-    - Metrics: "Reduced live call handling ~50%, increased bookings ~30%"
+    - Metrics: none. The "~50% / ~30%" figures were client-reported and are retired as of
+      2026-08-24. Do not reinstate them.
 
 ### Blog Page (`/blog`)
 

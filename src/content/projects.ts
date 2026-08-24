@@ -337,17 +337,15 @@ export const projects: Project[] = [
     description:
       "Vapi + LLM orchestration for a service business. Handles inbound calls, qualifies leads, routes appointments.",
     longDescription:
-      "Built an AI voice receptionist for a service business (DentMasters affiliate) using Vapi and LLM orchestration. The system handles inbound calls, qualifies leads based on business criteria, and routes qualified prospects to appointment scheduling.\n\nThe project demonstrated significant operational impact: live call handling time dropped by approximately 50%, and booked appointments increased by approximately 30%.",
+      "Built an AI voice receptionist for a service business (a dental practice) using Vapi and LLM orchestration. The system handles inbound calls, qualifies leads against the business's own criteria, and routes qualified prospects into appointment scheduling.\n\nThe engagement is complete and handed over. Call-volume and booking outcomes were measured on the client's own systems, not on instrumentation I owned, so no performance figures are published here.",
     techStack: ["Vapi", "LLM orchestration", "webhooks"],
     status: "completed",
     category: "client",
-    metrics: "Reduced live call handling ~50%, increased bookings ~30%",
     highlights: [
       "Vapi + LLM orchestration",
-      "Automated lead qualification",
+      "Automated lead qualification against the client's own criteria",
       "Appointment routing and scheduling",
-      "~50% reduction in live call handling time",
-      "~30% increase in booked appointments",
+      "Won and delivered as a solo engagement, start to handover",
     ],
   },
 ];

@@ -62,7 +62,7 @@ GitHub's own contribution graph further down this page is the unedited version.
 
 <br>
 
-- **AI voice receptionist** for a dental practice. Vapi plus LLM orchestration for inbound calls. The client reported roughly 50% less live call handling and roughly 30% more bookings.
+- **AI voice receptionist** for a dental practice. Vapi plus LLM orchestration for inbound calls, lead qualification and appointment routing. Delivered and handed over.
 - **Business sites and booking funnels** shipped in days rather than weeks.
 
 </details>
