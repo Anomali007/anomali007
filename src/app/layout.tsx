@@ -185,8 +185,13 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
       >
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Nav />
-        <main className="min-h-[calc(100vh-8rem)]">{children}</main>
+        <main id="main" className="min-h-[calc(100vh-8rem)]">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

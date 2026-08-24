@@ -12,7 +12,7 @@ const statusLabel: Record<Project["status"], string> = {
 const statusColor: Record<Project["status"], string> = {
   live: "text-emerald-400",
   beta: "text-amber-400",
-  completed: "text-amber-700",
+  completed: "text-amber-600",
   building: "text-amber-500",
 };
 
@@ -59,7 +59,7 @@ function CardContent({ project }: { project: Project }) {
           <TechBadge key={tech} name={tech} />
         ))}
         {project.techStack.length > 5 && (
-          <span className="inline-block border border-amber-500/25 bg-amber-500/5 px-2.5 py-0.5 font-mono text-[10px] text-amber-700">
+          <span className="inline-block border border-amber-500/25 bg-amber-500/5 px-2.5 py-0.5 font-mono text-[10px] text-amber-600">
             +{project.techStack.length - 5}
           </span>
         )}

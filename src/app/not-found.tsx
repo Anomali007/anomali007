@@ -33,7 +33,7 @@ export default function NotFound() {
             </div>
 
             <div className="p-8 sm:p-10">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-amber-700">
+              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-amber-600">
                 STATUS · NO MATCH
               </p>
               <h1 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.04em] text-[#fff5eb] sm:text-5xl">

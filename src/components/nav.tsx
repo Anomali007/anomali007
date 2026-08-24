@@ -21,7 +21,7 @@ export function Nav() {
             <span />
             <span />
           </span>
-          <span>anomali</span>
+          <span>Mali Franzese</span>
         </Link>
 
         {/* Desktop nav - brass-mono treatment with active indicator */}

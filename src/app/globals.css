@@ -6,7 +6,7 @@
   --surface: #141417;
   --surface-2: #1a1a1f;
   --text: #e4e4e7;
-  --text-secondary: #71717a;
+  --text-secondary: #8a8a94; /* was #71717a = 4.07:1 on --bg, below WCAG AA */
   --accent: #f59e0b; /* amber-500 - unified with hero brass */
   --accent-hover: #d97706; /* amber-600 */
   --border: #27272a;
@@ -261,8 +261,20 @@ a:hover .vitrine-icon,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .vitrine-icon { animation: none; }
   .vitrine-icon:hover { transform: scale(1.04); }
+
+  /* The bridge aesthetic leans on pulses, scroll reveals and a 3D hero.
+     Reduce all of it rather than only the vitrine icons. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Pulsing green dot */
@@ -381,4 +393,32 @@ a:hover .vitrine-icon,
   margin-left: -1rem;
   margin-right: -1rem;
   padding-right: 1rem;
+}
+
+/* Keyboard focus. Brass ring with a dark inner stroke so it reads on both the
+   page ground and the lighter panel chrome. */
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link - visually hidden until focused. */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--brass);
+  color: var(--brass);
+  font-family: var(--font-code), monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0.75rem;
 }

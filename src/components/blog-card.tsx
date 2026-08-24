@@ -19,7 +19,7 @@ export function BlogCard({ post }: { post: PostMeta }) {
         </span>
       </div>
 
-      <div className="mb-3 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-700">
+      <div className="mb-3 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-600">
         <time dateTime={post.date}>
           {new Date(post.date).toLocaleDateString("en-US", {
             year: "numeric",

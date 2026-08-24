@@ -73,7 +73,7 @@ const CODE_TABS: Tab[] = [
       <>
         {`  bearer: &Bearer,`}
         {"  "}
-        <span className="text-amber-700/80">{"// tenant-scoped caller"}</span>
+        <span className="text-amber-600/85">{"// tenant-scoped caller"}</span>
       </>,
       <>{`  request: &CreateIdentityRequest,`}</>,
       <>
@@ -83,7 +83,7 @@ const CODE_TABS: Tab[] = [
         {"  "}
         <span className="text-amber-500">let</span> tenant_id ={" "}
         bearer.tenant_id.to_string();{"  "}
-        <span className="text-amber-700/80">{"// pinned from bearer, not body"}</span>
+        <span className="text-amber-600/85">{"// pinned from bearer, not body"}</span>
       </>,
       <>
         {"  "}
@@ -92,7 +92,7 @@ const CODE_TABS: Tab[] = [
       <>{`    id: Uuid::new_v4(),`}</>,
       <>
         {"    "}tenant_id,{" "}
-        <span className="text-amber-700/80">{"// honors supplied tenant"}</span>
+        <span className="text-amber-600/85">{"// honors supplied tenant"}</span>
       </>,
       <>{`    kind: request.kind.clone(),`}</>,
       <>{`    created_at: Utc::now(),`}</>,
@@ -122,13 +122,13 @@ const CODE_TABS: Tab[] = [
         {"  "}
         <span className="text-amber-500">let</span> wallet =
         ctx.wallet_identities().await?;{"  "}
-        <span className="text-amber-700/80">{"// source of truth"}</span>
+        <span className="text-amber-600/85">{"// source of truth"}</span>
       </>,
       <>
         {"  "}
         <span className="text-amber-500">let</span> telnyx =
         ctx.telnyx_verify_profiles().await?;{"  "}
-        <span className="text-amber-700/80">{"// downstream mirror"}</span>
+        <span className="text-amber-600/85">{"// downstream mirror"}</span>
       </>,
       <>
         {"  "}
@@ -149,14 +149,14 @@ const CODE_TABS: Tab[] = [
         {"      "}
         <span className="text-amber-500">if</span> p.status != id.status{" "}
         {"{"} drift.push((id, p)); {"}"}{"  "}
-        <span className="text-amber-700/80">{"// flag mismatch"}</span>
+        <span className="text-amber-600/85">{"// flag mismatch"}</span>
       </>,
       <>{`    }`}</>,
       <>{`  }`}</>,
       <>
         {`  alert_if_drift(&drift)?;`}
         {"  "}
-        <span className="text-amber-700/80">{"// page on-call if non-empty"}</span>
+        <span className="text-amber-600/85">{"// page on-call if non-empty"}</span>
       </>,
       <>{`  Ok(Report::from(drift))`}</>,
       <>{`}`}</>,
@@ -183,17 +183,17 @@ const CODE_TABS: Tab[] = [
       <>
         {`    payload: event.serialize_redacted(),`}
         {"  "}
-        <span className="text-amber-700/80">{"// PII stripped pre-write"}</span>
+        <span className="text-amber-600/85">{"// PII stripped pre-write"}</span>
       </>,
       <>{`  };`}</>,
       <>
         {`  AUDIT_LOG.append(row);`}
         {"  "}
-        <span className="text-amber-700/80">{"// append-only, never mutated"}</span>
+        <span className="text-amber-600/85">{"// append-only, never mutated"}</span>
       </>,
       <>
         {"  "}
-        <span className="text-amber-700/80">
+        <span className="text-amber-600/85">
           {"// every action gets a receipt"}
         </span>
       </>,

@@ -155,7 +155,7 @@ export default async function BlogPostPage({
 
               <div className="p-6 sm:p-8">
                 {/* Date + reading-time strip */}
-                <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-700">
+                <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.22em] text-amber-600">
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",

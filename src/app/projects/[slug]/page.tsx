@@ -17,7 +17,7 @@ const statusLabel: Record<string, string> = {
 const statusColor: Record<string, string> = {
   live: "text-emerald-400",
   beta: "text-amber-400",
-  completed: "text-amber-700",
+  completed: "text-amber-600",
   building: "text-amber-500",
 };
 
@@ -105,11 +105,11 @@ export default async function ProjectDetailPage({
                   <span className={statusColor[project.status]}>
                     {statusLabel[project.status]}
                   </span>
-                  <span className="text-amber-700">·</span>
-                  <span className="text-amber-700">{project.category}</span>
+                  <span className="text-amber-600">·</span>
+                  <span className="text-amber-600">{project.category}</span>
                   {project.metrics && (
                     <>
-                      <span className="text-amber-700">·</span>
+                      <span className="text-amber-600">·</span>
                       <span className="text-amber-500/85">
                         {project.metrics}
                       </span>
