@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240" role="img" aria-label="The ship gate: changed files pass through tests, types, security review and land as a pull request.">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#F59E0B" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .bg   { fill:#0D1117; }
+      .card { fill:#161B22; stroke:#30363D; stroke-width:1; }
+      .n    { font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace; font-size:15px; fill:#E6EDF3; }
+      .s    { font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace; font-size:11px; fill:#8B949E; }
+      .k    { font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace; font-size:13px; fill:#F59E0B; letter-spacing:1.5px; }
+      .rail { stroke:#30363D; stroke-width:2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="240" rx="10"/>
+  <text class="k" x="40" y="46">/ship</text>
+  <text class="s" x="94" y="46">one command · every repo</text>
+
+  <line class="rail" x1="40" y1="128" x2="1160" y2="128"/>
+  <rect x="40" y="126" width="240" height="4" fill="url(#edge)">
+    <animate attributeName="x" from="40" to="920" dur="4.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <g>
+    <rect class="card" x="40"  y="96" width="196" height="64" rx="8"/>
+    <text class="n" x="60"  y="122">changed files</text>
+    <text class="s" x="60"  y="142">git diff</text>
+
+    <rect class="card" x="268" y="96" width="196" height="64" rx="8"/>
+    <text class="n" x="288" y="122">tests + lint</text>
+    <text class="s" x="288" y="142">fails closed</text>
+
+    <rect class="card" x="496" y="96" width="196" height="64" rx="8"/>
+    <text class="n" x="516" y="122">types</text>
+    <text class="s" x="516" y="142">no implicit any</text>
+
+    <rect class="card" x="724" y="96" width="196" height="64" rx="8"/>
+    <text class="n" x="744" y="122">review subagent</text>
+    <text class="s" x="744" y="142">security · tenancy · perf</text>
+
+    <rect class="card" x="952" y="96" width="208" height="64" rx="8"/>
+    <text class="n" x="972" y="122">pull request</text>
+    <text class="s" x="972" y="142">structured, or it stops</text>
+  </g>
+
+  <text class="s" x="40" y="200">Safety hooks underneath: destructive-command guard · secret scan on every write · format on write.</text>
+  <text class="s" x="40" y="220">Eleven slash commands, six subagents, four hooks. Portable across every repo.</text>
+</svg>
