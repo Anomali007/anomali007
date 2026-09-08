@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://themasslab.com"><img src="assets/tml-logo.svg" alt="The MASS Lab" width="64" height="60"></a>
+</p>
+
 <h1 align="center">Mali Franzese</h1>
 
 <p align="center">
