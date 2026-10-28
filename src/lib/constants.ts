@@ -6,7 +6,7 @@ export const siteConfig = {
     "Founder-Engineer at The MASS Lab - shipping production SaaS platforms end-to-end. Architecture, infra, CI/CD, and deployment across multiple startups.",
   url: "https://anomali007.com",
   github: "https://github.com/Anomali007",
-  linkedin: "https://www.linkedin.com/in/mali-franzese",
+  linkedin: "https://www.linkedin.com/in/malifranzese",
   email: "mali@themasslab.com",
   ogImage: "/images/avatar.jpg",
 };

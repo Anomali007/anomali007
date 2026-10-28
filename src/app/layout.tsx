@@ -88,11 +88,17 @@ export default function RootLayout({
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}/#person`,
     name: siteConfig.name,
     url: siteConfig.url,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
-    jobTitle: "Independent Principal Software Engineer",
-    worksFor: { "@type": "Organization", name: "The MASS Lab" },
+    jobTitle: "Founder",
+    worksFor: {
+      "@type": "Organization",
+      "@id": "https://themasslab.com/#organization",
+      name: "The MASS Lab",
+      url: "https://themasslab.com",
+    },
     sameAs: [siteConfig.github, siteConfig.linkedin],
   };
 
